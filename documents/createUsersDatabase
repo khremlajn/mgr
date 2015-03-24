@@ -1,0 +1,68 @@
+DROP TABLE IF EXISTS users, user_nodes, features, archetypes;
+
+CREATE TABLE IF NOT EXISTS users (
+    id serial PRIMARY KEY, 
+    name text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS user_nodes (    
+    user_id INT references users(id),
+    node_id INT references nodes(id),
+    PRIMARY KEY (user_id, node_id),
+    score integer NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS archetypes (
+    id serial PRIMARY KEY, 
+    name text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS features (
+    id serial PRIMARY KEY, 
+    
+    -- Amenity
+    -- outdoor eating bbq,biergarten
+    outdoor_eating real,
+    -- fast_food , food_court
+    fast_food real,
+    -- many restaurants
+    restaurants real,
+    -- vegetarian diet
+    vegetarian real,
+    -- vegan diet
+    vegan real,
+    -- pubs, bars
+    pub real,
+    -- cinemas
+    cinema real,
+    -- theatres
+    theatre real,
+    -- nightclub
+    nightblub real,
+    -- casinos, gambling
+    casino real,
+    -- nightlife , stripclub , brothel
+    stripclub real,
+    -- cafe
+    cafe real,
+    
+    -- Tourism
+    -- hostels, motels
+    hostel real,
+    -- hotels, apartments
+    hotel real,
+    -- caravan_site , cam_site
+    camping real,
+    -- museum, gallery, artwork
+    art real,
+    -- attractions
+    attraction real,
+    
+    -- Spatial
+    -- like to travel, rate nodes in different places
+    travel
+      
+    
+    user_id INT references users(id),
+    archetype_id INT references archetypes(id)
+);
