@@ -1,0 +1,9 @@
+1. Osmosis manipulate osm : http://learnosm.org/en/osm-data/osmosis/
+osmosis --read-pbf greater-london-latest.osm.pbf --node-key-value keyValueList="amenity.restaurant,amenity.pub,amenity.bar,amenity.bbq,amenity.cafe,amenity.fast_food,amenity." --write-xml foods.osm.pbf
+2. LinkedGeoData create database:
+ - sudo bash lgd-createdb.sh -h localhost -d foodsLondon -W p727nyv4 -f /home/arek/Desktop/foods.osm.pbf
+ - sudo gedit /etc/sparqlify/profiles.d/example.conf - change name of dbName
+3. create dump file:
+ - sudo sparqlify-tool -P example dump > /home/arek/Desktop/foodsDump.rdf
+4. create owl file:
+ - sudo sparqlify-tool -P example ontology > /home/arek/Desktop/foodsOntology.owl

@@ -4,6 +4,6 @@ osmosis --read-pbf greater-london-latest.osm.pbf --node-key-value keyValueList="
  - sudo bash lgd-createdb.sh -h localhost -d foodsLondon -W p727nyv4 -f /home/arek/Desktop/foods.osm.pbf
  - sudo gedit /etc/sparqlify/profiles.d/example.conf - change name of dbName
 3. create dump file:
- - sudo sparqlify-tool -P example dump > /home/arek/Desktop/foodsDump.rdf
+ - sudo sparqlify-tool -P example dump > /home/arek/Desktop/foodsDump.nt
 4. create owl file:
- - sudo sparqlify-tool -P example ontology > /home/arek/Desktop/foodsOntology.rdf
+ - sudo sparqlify-tool -P example ontology > /home/arek/Desktop/foodsOntology.owl

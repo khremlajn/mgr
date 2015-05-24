@@ -50,17 +50,20 @@ public class PostgresHelper {
 			columns.append(col).append(",");
 			
 			if (values.get(col) instanceof String) {
-				vals.append("'").append(values.get(col)).append("', ");
+				vals.append("'").append(values.get(col)).append("',");
 			}
 			else vals.append(values.get(col)).append(",");
 		}
 		
 		columns.setLength(columns.length()-1);
-		vals.setLength(vals.length()-2);
+		vals.setLength(vals.length()-1);
 
-		String query = String.format("INSERT INTO %s (%s) VALUES (%s)", table,
+		String query = String.format("INSERT INTO %s (%s) VALUES (%s) RETURNING *", table,
 				columns.toString(), vals.toString());
 		
-		return this.conn.createStatement().executeUpdate(query);
+		ResultSet set = execQuery(query);
+		set.next();
+		return set.getInt(1);
+		//return this.conn.createStatement().executeUpdate(query);
 	}
 }
