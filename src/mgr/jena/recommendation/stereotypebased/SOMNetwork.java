@@ -31,22 +31,136 @@ public class SOMNetwork {
 	private BasicTrainSOM train;
 	NeighborhoodBubble neighborhoodFunction;
 	Point networkSize = new Point(5,4);
-	private int initialRadius = 3;
-	private int iterations = 1000; 
+	private int initialRadius = 1;
 	private int endRadius = 1;
-	private double initialLearningRate = 0.8;
-	private double endLearningRate = 0.001;
-	private int samplesCount = 100;
-	private BufferedImage img;
+	private double initialLearningRate = 0.0002;
+	private double endLearningRate = 0.0001;
+	//private int samplesCount = 100;
+	//private BufferedImage img;
 	private int nodeSize = StereotypeEnum.values().length;
 	
 	private List<Stereotype> stereotypes;
 	
+	public String getStereotype(int i)
+	{
+		return stereotypes.get(i).getName();
+		
+	}
+	
+	
+	private void initStereotypes()
+	{
+		stereotypes = new ArrayList<Stereotype>();
+		
+		//St1 -kinomaniak
+		
+		Stereotype cinemaman = new Stereotype("cinemaman");
+		cinemaman.setValue(StereotypeEnum.cinemas, 1.0);
+		stereotypes.add(cinemaman);
+		
+		//St2 - fast_food
+		Stereotype fast_food = new Stereotype("fast_food");
+		fast_food.setValue(StereotypeEnum.restaurants_fast_food, 1.0);
+		stereotypes.add(fast_food);
+		
+		//St3 - art
+		Stereotype art = new Stereotype("art");
+		art.setValue(StereotypeEnum.art, 1.0);
+		stereotypes.add(art);
+		
+		//St4 - party
+		Stereotype party = new Stereotype("party");
+		party.setValue(StereotypeEnum.party, 1.0);
+		stereotypes.add(party);
+		
+		//St5 - jedzenie na zewnatrz
+		Stereotype outdoor_eating = new Stereotype("outdoor_eating");
+		outdoor_eating.setValue(StereotypeEnum.outdoor_eating, 1.0);
+		stereotypes.add(outdoor_eating);
+		
+		//St6 - retaurants_american
+		Stereotype retaurants_american = new Stereotype("retaurants_american");
+		retaurants_american.setValue(StereotypeEnum.restaurants_american, 1.0);
+		stereotypes.add(retaurants_american);
+		
+		//St7 - restaurants_asian
+		Stereotype restaurants_asian = new Stereotype("restaurants_asian");
+		restaurants_asian.setValue(StereotypeEnum.restaurants_asian, 1.0);
+		stereotypes.add(restaurants_asian);
+		
+		//St8 - reastaurants_italian
+		Stereotype reastaurants_italian = new Stereotype("reastaurants_italian");
+		reastaurants_italian.setValue(StereotypeEnum.restaurants_italian, 1.0);
+		stereotypes.add(reastaurants_italian);
+		
+		//St9 - restaurants_european
+		Stereotype restaurants_european = new Stereotype("restaurants_european");
+		restaurants_european.setValue(StereotypeEnum.restaurants_european, 1.0);
+		stereotypes.add(restaurants_european);
+		
+		//St10 - restaurants_vegetarian
+		Stereotype restaurants_vegetarian = new Stereotype("restaurants_vegetarian");
+		restaurants_vegetarian.setValue(StereotypeEnum.restaurants_vegetarian, 1.0);
+		stereotypes.add(restaurants_vegetarian);
+		
+		//St11 - restaurants_mediterranean
+		Stereotype restaurants_mediterranean = new Stereotype("restaurants_mediterranean");
+		restaurants_mediterranean.setValue(StereotypeEnum.restaurants_mediterranean, 1.0);
+		stereotypes.add(restaurants_mediterranean);
+		
+		//St12 - restaurants_international
+		Stereotype restaurants_international = new Stereotype("restaurants_international");
+		restaurants_international.setValue(StereotypeEnum.restaurants_international, 1.0);
+		stereotypes.add(restaurants_international);
+		
+		//St13 - home_eating
+		Stereotype home_eating = new Stereotype("home_eating");
+		home_eating.setValue(StereotypeEnum.home_eating, 1.0);
+		stereotypes.add(home_eating);
+		
+		//St14 - hotels_expensive
+		Stereotype hotels_expensive = new Stereotype("hotels_expensive");
+		hotels_expensive.setValue(StereotypeEnum.hotels_expensive, 1.0);
+		stereotypes.add(hotels_expensive);
+		
+		//St15 - hotels_cheap
+		Stereotype hotels_cheap = new Stereotype("hotels_cheap");
+		hotels_cheap.setValue(StereotypeEnum.hotels_cheap, 1.0);
+		stereotypes.add(hotels_cheap);
+		
+		//St16 - sightseeing
+		Stereotype sightseeing = new Stereotype("sightseeing");
+		sightseeing.setValue(StereotypeEnum.sightseeing, 1.0);
+		stereotypes.add(sightseeing);
+		
+		//St17 - smoker
+		Stereotype smoker = new Stereotype("smoker");
+		smoker.setValue(StereotypeEnum.smoker, 1.0);
+		stereotypes.add(smoker);
+		
+		//St18 - internet
+		Stereotype internet = new Stereotype("internet");
+		internet.setValue(StereotypeEnum.internet, 1.0);
+		stereotypes.add(internet);
+		
+		//St19 - travelman
+		Stereotype travelman = new Stereotype("travelman");
+		travelman.setValue(StereotypeEnum.travelman, 1.0);
+		stereotypes.add(travelman);
+		
+		//St20 - homeman
+		Stereotype homeman = new Stereotype("homeman");
+		homeman.setValue(StereotypeEnum.homeman, 1.0);
+		stereotypes.add(homeman);
+		
+	}
+	
+	/*
 	private void initStereotypes()
 	{
 		stereotypes = new ArrayList<Stereotype>();
 		//St1 -student
-		Stereotype student = new Stereotype();
+		Stereotype student = new Stereotype("student");
 		student.setValue(StereotypeEnum.amenity_cinema, 1.0);
 		student.setValue(StereotypeEnum.amenity_fast_food, 1.0);
 		student.setValue(StereotypeEnum.amenity_nightclub, 1.0);
@@ -59,7 +173,7 @@ public class SOMNetwork {
 		stereotypes.add(student);
 		
 		//St2 - biznesmen
-		Stereotype businessman = new Stereotype();
+		Stereotype businessman = new Stereotype("businessman");
 		businessman.setValue(StereotypeEnum.amenity_restaurant, 1.0);
 		businessman.setValue(StereotypeEnum.travelman, 1.0);
 		businessman.setValue(StereotypeEnum.tourism_hotel, 1.0);
@@ -67,7 +181,7 @@ public class SOMNetwork {
 		stereotypes.add(businessman);
 		
 		//St3 - Podroznik
-		Stereotype travelman = new Stereotype();
+		Stereotype travelman = new Stereotype("travelman");
 		travelman.setValue(StereotypeEnum.amenity_restaurant, 1.0);
 		travelman.setValue(StereotypeEnum.travelman, 1.0);
 		travelman.setValue(StereotypeEnum.tourism_hotel, 1.0);
@@ -78,7 +192,7 @@ public class SOMNetwork {
 		stereotypes.add(travelman);
 		
 		//St4 - Domator
-		Stereotype homeman = new Stereotype();
+		Stereotype homeman = new Stereotype("homeman");
 		homeman.setValue(StereotypeEnum.amenity_restaurant, 1.0);
 		homeman.setValue(StereotypeEnum.travelman, -1.0);
 		homeman.setValue(StereotypeEnum.takeaway, 1.0);
@@ -92,7 +206,7 @@ public class SOMNetwork {
 		stereotypes.add(homeman);
 		
 		//St5 - Milosnik sztuki
-		Stereotype artman = new Stereotype();
+		Stereotype artman = new Stereotype("artman");
 		artman.setValue(StereotypeEnum.amenity_arts_centre, 1.0);
 		artman.setValue(StereotypeEnum.amenity_cinema, 1.0);
 		artman.setValue(StereotypeEnum.amenity_theatre, 1.0);
@@ -100,15 +214,14 @@ public class SOMNetwork {
 		stereotypes.add(artman);
 		
 		//St6 - Wegetarianin
-		Stereotype vegetarian = new Stereotype();
+		Stereotype vegetarian = new Stereotype("vegetarian");
 		vegetarian.setValue(StereotypeEnum.diet_vegetarian, 1.0);
 		vegetarian.setValue(StereotypeEnum.cuisine_vegetarian, 1.0);
-		vegetarian.setValue(StereotypeEnum.amenity_theatre, 1.0);
-		vegetarian.setValue(StereotypeEnum.tourism_museum, 1.0);
+		vegetarian.setValue(StereotypeEnum.amenity_restaurant, 1.0);
 		stereotypes.add(vegetarian);
 		
 		//St7 - Imprezowicz
-		Stereotype partyman = new Stereotype();
+		Stereotype partyman = new Stereotype("partyman");
 		partyman.setValue(StereotypeEnum.amenity_nightclub, 1.0);
 		partyman.setValue(StereotypeEnum.amenity_pub, 1.0);
 		partyman.setValue(StereotypeEnum.cuisine_coffee_shop, 1.0);
@@ -119,7 +232,7 @@ public class SOMNetwork {
 		stereotypes.add(partyman);
 		
 		//St8 - Rodzinny
-		Stereotype familyman = new Stereotype();
+		Stereotype familyman = new Stereotype("familyman");
 		familyman.setValue(StereotypeEnum.amenity_ice_cream, 1.0);
 		familyman.setValue(StereotypeEnum.amenity_cafe, 1.0);
 		familyman.setValue(StereotypeEnum.amenity_cinema, 1.0);
@@ -133,7 +246,7 @@ public class SOMNetwork {
 		stereotypes.add(familyman);
 		
 		//St9 - swieze powietrze
-		Stereotype natureman = new Stereotype();
+		Stereotype natureman = new Stereotype("natureman");
 		natureman.setValue(StereotypeEnum.amenity_ice_cream, 1.0);
 		natureman.setValue(StereotypeEnum.outdoor_seating, 1.0);
 		natureman.setValue(StereotypeEnum.cuisine_ice_cream, 1.0);
@@ -143,7 +256,7 @@ public class SOMNetwork {
 		stereotypes.add(natureman);
 		
 		//St10 - milosnik kuchni azjatyckiej
-		Stereotype asian = new Stereotype();
+		Stereotype asian = new Stereotype("asian");
 		asian.setValue(StereotypeEnum.amenity_restaurant, 1.0);
 		asian.setValue(StereotypeEnum.amenity_bar, 1.0);
 		asian.setValue(StereotypeEnum.cuisine_asian, 1.0);
@@ -157,7 +270,7 @@ public class SOMNetwork {
 		stereotypes.add(asian);
 		
 		//St11 - milosnik kuchni europejskiej
-		Stereotype european = new Stereotype();
+		Stereotype european = new Stereotype("european");
 		european.setValue(StereotypeEnum.amenity_restaurant, 1.0);
 		european.setValue(StereotypeEnum.amenity_bar, 1.0);
 		european.setValue(StereotypeEnum.amenity_pub, 1.0);
@@ -170,7 +283,7 @@ public class SOMNetwork {
 		stereotypes.add(european);
 		
 		//St12 - milosnik kuchni srodziemnomorskiej
-		Stereotype mediterranean = new Stereotype();
+		Stereotype mediterranean = new Stereotype("mediterranean");
 		mediterranean.setValue(StereotypeEnum.amenity_restaurant, 1.0);
 		mediterranean.setValue(StereotypeEnum.amenity_bar, 1.0);
 		mediterranean.setValue(StereotypeEnum.cuisine_greek, 1.0);
@@ -180,7 +293,7 @@ public class SOMNetwork {
 		stereotypes.add(mediterranean);
 		
 		//St13 - milosnik kuchni amerykanskiej
-		Stereotype american = new Stereotype();
+		Stereotype american = new Stereotype("american");
 		american.setValue(StereotypeEnum.amenity_restaurant, 1.0);
 		american.setValue(StereotypeEnum.amenity_bar, 1.0);
 		american.setValue(StereotypeEnum.amenity_fast_food, 1.0);
@@ -193,7 +306,7 @@ public class SOMNetwork {
 		stereotypes.add(american);
 		
 		//St14 - milosnik kuchni wloskiej
-		Stereotype italian = new Stereotype();
+		Stereotype italian = new Stereotype("italian");
 		italian.setValue(StereotypeEnum.amenity_restaurant, 1.0);
 		italian.setValue(StereotypeEnum.amenity_bar, 1.0);
 		italian.setValue(StereotypeEnum.cuisine_coffee, 1.0);
@@ -206,28 +319,26 @@ public class SOMNetwork {
 		stereotypes.add(italian);
 		
 		//St15 - osoba jezdzaca na wozku
-		Stereotype wheelchair = new Stereotype();
-		wheelchair.setValue(StereotypeEnum.travelman, -1.0);
-		wheelchair.setValue(StereotypeEnum.smoking, -1.0);
+		Stereotype wheelchair = new Stereotype("wheelchair");
 		wheelchair.setValue(StereotypeEnum.wheelchair, 1.0);
 		wheelchair.setValue(StereotypeEnum.takeaway, 1.0);
 		wheelchair.setValue(StereotypeEnum.delivery, 1.0);
 		stereotypes.add(wheelchair);
 		
 		//St16 - palacz
-		Stereotype smoker = new Stereotype();
+		Stereotype smoker = new Stereotype("smoker");
 		smoker.setValue(StereotypeEnum.smoking, 1.0);
 		stereotypes.add(smoker);
 		
 		//St17 - poszukiwacz internetu
-		Stereotype internetManiac = new Stereotype();
+		Stereotype internetManiac = new Stereotype("internetManiac");
 		internetManiac.setValue(StereotypeEnum.internet_access, 1.0);
 		internetManiac.setValue(StereotypeEnum.wifi, 1.0);
 		internetManiac.setValue(StereotypeEnum.amenity_cafe, 1.0);
 		stereotypes.add(internetManiac);
 		
 		//St18 - budzetowy podróżnik
-		Stereotype budgetTravelman = new Stereotype();
+		Stereotype budgetTravelman = new Stereotype("budgetTravelman");
 		budgetTravelman.setValue(StereotypeEnum.travelman, 1.0);
 		budgetTravelman.setValue(StereotypeEnum.amenity_fast_food, 1.0);
 		budgetTravelman.setValue(StereotypeEnum.amenity_cafe, 1.0);
@@ -237,7 +348,7 @@ public class SOMNetwork {
 		stereotypes.add(budgetTravelman);
 		
 		//St19 - milosnik fast foodow
-		Stereotype fastFood = new Stereotype();
+		Stereotype fastFood = new Stereotype("fastFood");
 		fastFood.setValue(StereotypeEnum.cuisine_kebab, 1.0);
 		fastFood.setValue(StereotypeEnum.amenity_fast_food, 1.0);
 		fastFood.setValue(StereotypeEnum.cuisine_pizza, 1.0);
@@ -246,17 +357,17 @@ public class SOMNetwork {
 		stereotypes.add(fastFood);
 		
 		//St20 - milosnik dan regionalnych
-		Stereotype regional = new Stereotype();
+		Stereotype regional = new Stereotype("regional");
 		regional.setValue(StereotypeEnum.cuisine_regional, 1.0);
 		stereotypes.add(regional);
 		
-	}
+	}*/
 	
 	public SOMNetwork() {
 		initStereotypes();
 		this.network = createNetwork();
-		this.train = new BasicTrainSOM(this.network, 0.8, null, neighborhoodFunction);
-		train.setForceWinner(true);
+		this.train = new BasicTrainSOM(this.network, initialLearningRate, null, neighborhoodFunction);
+		train.setForceWinner(false);
 	}
 
 	public SOM getNetwork() {
@@ -302,75 +413,58 @@ public class SOMNetwork {
 			this.train.trainPattern(c);
 			this.train.autoDecay();
 		}
+		System.out.println();
+		System.out.println("Train method finished");
 	}
 	
 	public int winner(OSMUser user)
 	{
 		//Matrix m = network.getWeights();
-		BasicNeuralData data = new BasicNeuralData(nodeSize);
+		BasicMLData data = new BasicMLData(nodeSize);
 		Stereotype s = user.calculateStereotype();
 		
 		for(int i=0;i<nodeSize;i++)
         {
 			data.getData()[i] = s.getValues().get(i);
+			if(i % 5 ==0)
+			{
+				System.out.print("{"+ i + "} ");
+			}
+			System.out.print(data.getData()[i] + " , ");
         }
-		return network.winner(data);
+		System.out.println();
+		int win = network.classify(data);
+		printWeights(win);
+		System.out.println(calculateDifference(win,data));
+		printWeights(9);
+		System.out.println(calculateDifference(9,data));
+		return win;
 	}
 	
-	public void run() {
-
-		List<MLData> samples = new ArrayList<MLData>();
-		for (int i = 0; i < samplesCount; i++) {
-			MLData data = new BasicMLData(3);
-			/* Set samples data
-			int x = RangeRandomizer.randomInt(0,img.getWidth()-1);
-			int y = RangeRandomizer.randomInt(0,img.getHeight()-1);
-			
-			Color c = new Color(img.getRGB(x, y));
-			
-			data.setData(0, convertColor(c.getRed()));
-			data.setData(1, convertColor(c.getGreen()));
-			data.setData(2, convertColor(c.getBlue()));*/
-			samples.add(data);
+	private double calculateDifference(int number, BasicMLData data)
+	{
+		double difference = 0.0;
+		for(int i=0;i<data.size();i++)
+		{
+			double diff = data.getData()[i] - network.getWeights().get(number,i);
+			difference += diff * diff;
 		}
-		this.train.setAutoDecay(iterations, initialLearningRate, endLearningRate, initialRadius, endRadius);
-
-		for (int i = 0; i < iterations; i++) {
-			int idx = (int) (Math.random() * samples.size());
-			MLData c = samples.get(idx);
-			this.train.trainPattern(c);
-			this.train.autoDecay();
-			
+		
+		return Math.sqrt(difference);
+	}
+	
+	private void printWeights(int number)
+	{
+		Matrix temp = network.getWeights().getRow(number);
+		double[] d = temp.toPackedArray();
+		for(int i=0;i<d.length;i++)
+		{
+			if(i % 5 ==0)
+			{
+				System.out.print("{"+ i + "} ");
+			}
+			System.out.print(d[i] + " , ");
 		}
-		Matrix m = network.getWeights();
-		for (int x = 0; x < img.getWidth(); x++)
-        {
-            for (int y = 0; y < img.getHeight(); y++)
-            {
-                Color c = new Color(img.getRGB(x, y));
-                BasicNeuralData data = new BasicNeuralData(3);
-                /*set data
-                data.getData()[0] = convertColor(c.getRed());
-                data.getData()[1] = convertColor(c.getGreen());
-                data.getData()[2] = convertColor(c.getBlue());
-                */
-                int winner = network.winner(data);
-                /*
-                MLData result = new BasicMLData(3);
-                
-                Matrix row = network.getWeights().getRow(winner);
-                for (int i = 0; i < 3; i++)
-                {
-                    result.getData()[i] = row.get(0, i);
-                }
-                int r = convertColor(result.getData(0));
-                int g = convertColor(result.getData(1));
-                int b = convertColor(result.getData(2));
-                Color newColor = new Color(r,g,b);
-                img.setRGB(x, y, newColor.getRGB());
-                */
-            }
-        }
-			
+		System.out.println();
 	}
 }

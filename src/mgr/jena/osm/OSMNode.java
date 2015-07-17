@@ -48,6 +48,11 @@ public class OSMNode
 		return values.get(key);
 	}
 	
+	public Boolean containsKey(String key)
+	{
+		return this.values.containsKey(key);
+	}
+	
 	public Boolean containsKeyValue(String key,String value)
 	{
 		if(this.values.containsKey(key))

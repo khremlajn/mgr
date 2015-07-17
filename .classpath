@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="/home/arek/workspace/MgrJena/lib/JMapViewer.jar" sourcepath="/home/arek/workspace/MgrJena/lib/JMapViewer_src.jar"/>
 	<classpathentry kind="lib" path="/home/arek/workspace/MgrJena/lib/josm-tested.jar"/>
 	<classpathentry kind="lib" path="/home/arek/workspace/MgrJena/lib/mappanel.jar"/>
+	<classpathentry kind="lib" path="lib/simmetrics_jar_v1_6_2_d07_02_07.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -46,13 +46,13 @@ public class UserRecommender {
 		return similarUsers;
 	}
 	
-	public Map<Long , Double> getRecommendations(String userID, Map<String, OSMUser> users)
+	public Map<OSMNode , Double> getRecommendations(String userID, Map<String, OSMUser> users)
 	{
 		OSMUser user = users.get(userID);
 		double avgU = user.getAverageMark();
 		Map<OSMUser , Double> similarUsers =  getSimilarUsers(userID, users);
 		//find all items reviewed by similar users
-		Map<Long , NodePoint> items = new HashMap<Long, NodePoint>();
+		Map<OSMNode , NodePoint> items = new HashMap<OSMNode, NodePoint>();
 		Iterator<Entry<OSMUser, Double>> itUser = similarUsers.entrySet().iterator();
 	    while (itUser.hasNext()) {
 	        Map.Entry<OSMUser, Double> pairUser = itUser.next();
@@ -66,22 +66,22 @@ public class UserRecommender {
 	        	r = r * sim;
 	        	if(!items.containsKey(pairItem.getKey()))
 	        	{
-	        		items.put(pairItem.getKey(), new NodePoint(r,Math.abs(sim)));
+	        		items.put(pairItem.getValue().getNode(), new NodePoint(r,Math.abs(sim)));
 	        	}
 	        	else
 	        	{
 	        		NodePoint np = items.get(pairItem.getKey());
 	        		r += np.getX();
 	        		np.setY(np.getY() + Math.abs(sim));
-	        		items.put(pairItem.getKey(), np);
+	        		items.put(pairItem.getValue().getNode(), np);
 	        	}
 	        }
 	    }
-	    Map<Long, Double> recommendations = new HashMap<Long, Double>();
+	    Map<OSMNode, Double> recommendations = new HashMap<OSMNode, Double>();
 	    
-	    Iterator<Entry<Long, NodePoint>> itItems = items.entrySet().iterator();
+	    Iterator<Entry<OSMNode, NodePoint>> itItems = items.entrySet().iterator();
 	    while (itItems.hasNext()) {
-	        Map.Entry<Long, NodePoint> pairItem = itItems.next();
+	        Map.Entry<OSMNode, NodePoint> pairItem = itItems.next();
 	        if(!user.getReviews().containsKey(pairItem.getKey()))
 	        {
 	        	//node is not reviewed by user

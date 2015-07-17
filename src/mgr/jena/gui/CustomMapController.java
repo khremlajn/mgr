@@ -32,7 +32,7 @@ public class CustomMapController extends DefaultMapController {
 	            while (i.hasNext()) {
 
 	                MapMarker mapMarker = (MapMarker) i.next();
-
+	                if(!mapMarker.isVisible()) continue;
 	                Point MarkerPosition = map.getMapPosition(mapMarker.getLat(), mapMarker.getLon());
 	                if( MarkerPosition != null){
 

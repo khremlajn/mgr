@@ -41,6 +41,12 @@ public class StereotypeRecommender {
 		network = new SOMNetwork();
 	}
 	
+	public String winner(OSMUser user)
+	{
+		int win = network.winner(user);
+		return network.getStereotype(win);
+	}
+	
 	public Map<OSMNode , Double> getRecommendations(String userID, Map<String, OSMUser> users)
 	{
 		Map<OSMNode , Double> recommendations = new HashMap<OSMNode, Double>();

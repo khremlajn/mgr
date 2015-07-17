@@ -1,0 +1,1949 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY meta "http://linkedgeodata.org/meta/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/owl/owlapi/turtle#"
+     xml:base="http://www.semanticweb.org/owl/owlapi/turtle"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:meta="http://linkedgeodata.org/meta/">
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://linkedgeodata.org/meta/key -->
+
+    <owl:AnnotationProperty rdf:about="&meta;key"/>
+    
+
+
+    <!-- http://linkedgeodata.org/meta/sourceKey -->
+
+    <owl:AnnotationProperty rdf:about="&meta;sourceKey"/>
+    
+
+
+    <!-- http://linkedgeodata.org/meta/sourceTag -->
+
+    <owl:AnnotationProperty rdf:about="&meta;sourceTag"/>
+    
+
+
+    <!-- http://linkedgeodata.org/meta/value -->
+
+    <owl:AnnotationProperty rdf:about="&meta;value"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://linkedgeodata.org/brand -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/brand">
+        <rdfs:domain rdf:resource="http://linkedgeodata.org/ontology/Restaurant"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://linkedgeodata.org/capacity -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/capacity">
+        <rdfs:range rdf:resource="&xsd;integer"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://linkedgeodata.org/cuisine -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/cuisine">
+        <rdfs:domain rdf:resource="http://linkedgeodata.org/ontology/Restaurant"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://linkedgeodata.org/internet_access -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/internet_access">
+        <rdfs:domain rdf:resource="http://linkedgeodata.org/ontology/Restaurant"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://linkedgeodata.org/name -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/name">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://linkedgeodata.org/opening_hours -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/opening_hours">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://linkedgeodata.org/phone -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/phone">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://linkedgeodata.org/smoking -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/smoking">
+        <rdfs:domain rdf:resource="http://linkedgeodata.org/ontology/Restaurant"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://linkedgeodata.org/stars -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/stars">
+        <rdfs:domain rdf:resource="http://linkedgeodata.org/ontology/Restaurant"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://linkedgeodata.org/takeaway -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/takeaway">
+        <rdfs:domain rdf:resource="http://linkedgeodata.org/ontology/Restaurant"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://linkedgeodata.org/website -->
+
+    <owl:DatatypeProperty rdf:about="http://linkedgeodata.org/website">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Amenity -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Amenity">
+        <meta:sourceKey>amenity</meta:sourceKey>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/ArtGallery -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ArtGallery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/ArtGallery/key/amenity/value/art_gallery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/ArtsCentre -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/ArtsCentre">
+        <rdfs:label xml:lang="af">Kunssentrum</rdfs:label>
+        <rdfs:label xml:lang="aln">Art Qendra</rdfs:label>
+        <rdfs:label xml:lang="ar">مركز فني/ثقافي</rdfs:label>
+        <rdfs:label xml:lang="arz">مركز فني/ثقافي</rdfs:label>
+        <rdfs:label xml:lang="ast">Centru d&apos;arte</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Мастацкі цэнтар</rdfs:label>
+        <rdfs:label xml:lang="br">Kreizenn arz</rdfs:label>
+        <rdfs:label xml:lang="ca">Centre d&apos;Art</rdfs:label>
+        <rdfs:label xml:lang="cs">Kulturní centrum</rdfs:label>
+        <rdfs:label xml:lang="da">Kunstcenter</rdfs:label>
+        <rdfs:label xml:lang="de">Kunstcenter</rdfs:label>
+        <rdfs:label xml:lang="dsb">Kulturny centrum</rdfs:label>
+        <rdfs:label xml:lang="el">Κέντρο Τεχνών</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Arts Centre</rdfs:label>
+        <rdfs:label xml:lang="es">Centro artístico</rdfs:label>
+        <rdfs:label xml:lang="eu">Arte Zentroa</rdfs:label>
+        <rdfs:label xml:lang="fi">Taidekeskus</rdfs:label>
+        <rdfs:label xml:lang="fr">Centre artistique</rdfs:label>
+        <rdfs:label xml:lang="fur">Centri pes arts</rdfs:label>
+        <rdfs:label xml:lang="gl">Centro artístico</rdfs:label>
+        <rdfs:label xml:lang="he">מרכז אמנויות</rdfs:label>
+        <rdfs:label xml:lang="hr">Umjetnički centar</rdfs:label>
+        <rdfs:label xml:lang="hsb">Kulturny centrum</rdfs:label>
+        <rdfs:label xml:lang="hu">Művészeti központ</rdfs:label>
+        <rdfs:label xml:lang="ia">Centro artistic</rdfs:label>
+        <rdfs:label xml:lang="it">Centro d&apos;arte</rdfs:label>
+        <rdfs:label xml:lang="ja">アートセンター</rdfs:label>
+        <rdfs:label xml:lang="ka">ხელოვნების ცენტრი</rdfs:label>
+        <rdfs:label xml:lang="lt">Menų centras</rdfs:label>
+        <rdfs:label xml:lang="lv">Mākslas centrs</rdfs:label>
+        <rdfs:label xml:lang="mk">Дом на уметности</rdfs:label>
+        <rdfs:label xml:lang="ms">Pusat Seni</rdfs:label>
+        <rdfs:label xml:lang="nds">Kunstcenter</rdfs:label>
+        <rdfs:label xml:lang="nl">Kunstcollectief</rdfs:label>
+        <rdfs:label xml:lang="no">Kunstsenter</rdfs:label>
+        <rdfs:label xml:lang="pl">Centrum sztuki</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Centro de Arte</rdfs:label>
+        <rdfs:label xml:lang="ru">Дом искусств</rdfs:label>
+        <rdfs:label xml:lang="sk">Kultúrne stredisko</rdfs:label>
+        <rdfs:label xml:lang="sl">Umetnostni center</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Уметнички центар</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Umetnički centar</rdfs:label>
+        <rdfs:label xml:lang="sv">Konstcenter</rdfs:label>
+        <rdfs:label xml:lang="tl">Lunduyan ng Sining</rdfs:label>
+        <rdfs:label xml:lang="tr">Sanat Merkezi</rdfs:label>
+        <rdfs:label xml:lang="uk">Мистецький центр</rdfs:label>
+        <rdfs:label xml:lang="vi">Trung tâm Nghệ thuật</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">艺术中心</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/ArtsCentre/key/amenity/value/arts_centre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Artwork -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Artwork">
+        <rdfs:label xml:lang="af">Kunswerk</rdfs:label>
+        <rdfs:label xml:lang="aln">Puna artistike</rdfs:label>
+        <rdfs:label xml:lang="ar">عمل فني</rdfs:label>
+        <rdfs:label xml:lang="arz">عمل فني</rdfs:label>
+        <rdfs:label xml:lang="ast">Obra d&apos;arte</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Твор мастацтва</rdfs:label>
+        <rdfs:label xml:lang="br">Oberenn arz</rdfs:label>
+        <rdfs:label xml:lang="ca">Il·lustració</rdfs:label>
+        <rdfs:label xml:lang="cs">Umělecké dílo</rdfs:label>
+        <rdfs:label xml:lang="da">Kunst</rdfs:label>
+        <rdfs:label xml:lang="de">Kunstwerk</rdfs:label>
+        <rdfs:label xml:lang="dsb">Wuměłska twórba</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Artwork</rdfs:label>
+        <rdfs:label xml:lang="es">Obra de arte</rdfs:label>
+        <rdfs:label xml:lang="fa">آثار هنری</rdfs:label>
+        <rdfs:label xml:lang="fi">Taideteos</rdfs:label>
+        <rdfs:label xml:lang="fr">Œuvre d’art</rdfs:label>
+        <rdfs:label xml:lang="gl">Obra de arte</rdfs:label>
+        <rdfs:label xml:lang="he">יצירת אמנות</rdfs:label>
+        <rdfs:label xml:lang="hr">Umjetničko djelo</rdfs:label>
+        <rdfs:label xml:lang="hsb">Wuměłska twórba</rdfs:label>
+        <rdfs:label xml:lang="hu">Műalkotás</rdfs:label>
+        <rdfs:label xml:lang="ia">Obra de arte</rdfs:label>
+        <rdfs:label xml:lang="is">Listaverk</rdfs:label>
+        <rdfs:label xml:lang="it">Opera d&apos;arte</rdfs:label>
+        <rdfs:label xml:lang="ja">芸術作品</rdfs:label>
+        <rdfs:label xml:lang="lb">Konschtwierk</rdfs:label>
+        <rdfs:label xml:lang="lv">Mākslas darbs</rdfs:label>
+        <rdfs:label xml:lang="mk">Уметничко дело</rdfs:label>
+        <rdfs:label xml:lang="nds">Kunst</rdfs:label>
+        <rdfs:label xml:lang="nl">Kunst</rdfs:label>
+        <rdfs:label xml:lang="no">Kunstverk</rdfs:label>
+        <rdfs:label xml:lang="pl">Sztuka</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Ilustração</rdfs:label>
+        <rdfs:label xml:lang="ru">Произведения искусства</rdfs:label>
+        <rdfs:label xml:lang="sk">Umelecké dielo</rdfs:label>
+        <rdfs:label xml:lang="sl">Umetnina</rdfs:label>
+        <rdfs:label xml:lang="sq">Puna artistike</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Галерија</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Galerija</rdfs:label>
+        <rdfs:label xml:lang="sv">Konstverk</rdfs:label>
+        <rdfs:label xml:lang="tl">Likhang Sining</rdfs:label>
+        <rdfs:label xml:lang="tr">Sanat eseri</rdfs:label>
+        <rdfs:label xml:lang="uk">Образотворче мистецтво</rdfs:label>
+        <rdfs:label xml:lang="vi">Tác phẩm Nghệ thuật</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">艺术品</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">美工</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/TourismThing"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Artwork/key/amenity/value/artwork"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Artwork/key/tourism/value/artwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Attraction -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Attraction">
+        <rdfs:label xml:lang="af">Attraksie</rdfs:label>
+        <rdfs:label xml:lang="aln">Qef</rdfs:label>
+        <rdfs:label xml:lang="ar">معلم سياحي</rdfs:label>
+        <rdfs:label xml:lang="arz">معلم سياحي</rdfs:label>
+        <rdfs:label xml:lang="ast">Interés turísticu</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Славутасьць</rdfs:label>
+        <rdfs:label xml:lang="br">Tra zedennus</rdfs:label>
+        <rdfs:label xml:lang="ca">Atracció</rdfs:label>
+        <rdfs:label xml:lang="cs">Turistická atrakce</rdfs:label>
+        <rdfs:label xml:lang="da">Seværdighed</rdfs:label>
+        <rdfs:label xml:lang="de">Attraktion</rdfs:label>
+        <rdfs:label xml:lang="dsb">Atrakcija</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Attraction</rdfs:label>
+        <rdfs:label xml:lang="es">Atracción</rdfs:label>
+        <rdfs:label xml:lang="et">Turismiatraktsioon</rdfs:label>
+        <rdfs:label xml:lang="eu">Atrakzio</rdfs:label>
+        <rdfs:label xml:lang="fa">جاذبه</rdfs:label>
+        <rdfs:label xml:lang="fi">Nähtävyys</rdfs:label>
+        <rdfs:label xml:lang="fr">Attraction</rdfs:label>
+        <rdfs:label xml:lang="gl">Atracción</rdfs:label>
+        <rdfs:label xml:lang="he">אתר בעל עניין</rdfs:label>
+        <rdfs:label xml:lang="hr">Atrakcija</rdfs:label>
+        <rdfs:label xml:lang="hsb">Atrakcija</rdfs:label>
+        <rdfs:label xml:lang="hu">Látnivaló</rdfs:label>
+        <rdfs:label xml:lang="ia">Attraction</rdfs:label>
+        <rdfs:label xml:lang="it">Attrazione turistica</rdfs:label>
+        <rdfs:label xml:lang="ja">アトラクション</rdfs:label>
+        <rdfs:label xml:lang="ka">ატრაქციონი</rdfs:label>
+        <rdfs:label xml:lang="lb">Attraktioun</rdfs:label>
+        <rdfs:label xml:lang="lt">Lankytina vieta</rdfs:label>
+        <rdfs:label xml:lang="lv">Atrakcija</rdfs:label>
+        <rdfs:label xml:lang="mk">Атракција</rdfs:label>
+        <rdfs:label xml:lang="nl">Attractie</rdfs:label>
+        <rdfs:label xml:lang="no">Attraksjon</rdfs:label>
+        <rdfs:label xml:lang="pl">Atrakcja turystyczna</rdfs:label>
+        <rdfs:label xml:lang="pt">Atracção</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Atração</rdfs:label>
+        <rdfs:label xml:lang="ru">Аттракцион</rdfs:label>
+        <rdfs:label xml:lang="sk">Atrakcia</rdfs:label>
+        <rdfs:label xml:lang="sl">Zanimivost</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Атракција</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Atrakcija</rdfs:label>
+        <rdfs:label xml:lang="sv">Attraktion</rdfs:label>
+        <rdfs:label xml:lang="tl">Pang-akit</rdfs:label>
+        <rdfs:label xml:lang="tr">Gezelim görelim yeri</rdfs:label>
+        <rdfs:label xml:lang="uk">Цікаві місця</rdfs:label>
+        <rdfs:label xml:lang="vi">Nơi Du lịch</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">景点</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/TourismThing"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Attraction/key/tourism/value/attraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Bar -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bar">
+        <rdfs:label xml:lang="af">Kroeg</rdfs:label>
+        <rdfs:label xml:lang="aln">Bar</rdfs:label>
+        <rdfs:label xml:lang="ar">حانة</rdfs:label>
+        <rdfs:label xml:lang="arz">حانة</rdfs:label>
+        <rdfs:label xml:lang="ast">Bar</rdfs:label>
+        <rdfs:label xml:lang="az">Bar</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Бар</rdfs:label>
+        <rdfs:label xml:lang="br">Tavarn</rdfs:label>
+        <rdfs:label xml:lang="ca">Bar</rdfs:label>
+        <rdfs:label xml:lang="cs">Bar</rdfs:label>
+        <rdfs:label xml:lang="da">Bar</rdfs:label>
+        <rdfs:label xml:lang="de">Bar</rdfs:label>
+        <rdfs:label xml:lang="dsb">Bara</rdfs:label>
+        <rdfs:label xml:lang="el">Μπαρ</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Bar</rdfs:label>
+        <rdfs:label xml:lang="es">Bar</rdfs:label>
+        <rdfs:label xml:lang="et">Baar</rdfs:label>
+        <rdfs:label xml:lang="eu">Taberna</rdfs:label>
+        <rdfs:label xml:lang="fi">Baari</rdfs:label>
+        <rdfs:label xml:lang="fr">Bar</rdfs:label>
+        <rdfs:label xml:lang="fur">Bar</rdfs:label>
+        <rdfs:label xml:lang="gl">Bar</rdfs:label>
+        <rdfs:label xml:lang="he">פאב</rdfs:label>
+        <rdfs:label xml:lang="hr">Bar</rdfs:label>
+        <rdfs:label xml:lang="hsb">Bara</rdfs:label>
+        <rdfs:label xml:lang="hu">Bár</rdfs:label>
+        <rdfs:label xml:lang="ia">Bar</rdfs:label>
+        <rdfs:label xml:lang="is">Barinn</rdfs:label>
+        <rdfs:label xml:lang="it">Bar</rdfs:label>
+        <rdfs:label xml:lang="ja">バー (立ち飲み屋)</rdfs:label>
+        <rdfs:label xml:lang="ka">ბარი</rdfs:label>
+        <rdfs:label xml:lang="ku-latn">Bar</rdfs:label>
+        <rdfs:label xml:lang="lt">Baras</rdfs:label>
+        <rdfs:label xml:lang="lv">Bārs</rdfs:label>
+        <rdfs:label xml:lang="mk">Бар</rdfs:label>
+        <rdfs:label xml:lang="ms">Kedai Arak</rdfs:label>
+        <rdfs:label xml:lang="nds">Bar</rdfs:label>
+        <rdfs:label xml:lang="nl">Bar</rdfs:label>
+        <rdfs:label xml:lang="no">Bar</rdfs:label>
+        <rdfs:label xml:lang="pl">Bar</rdfs:label>
+        <rdfs:label xml:lang="pt">Bar</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Bar</rdfs:label>
+        <rdfs:label xml:lang="ru">Бар</rdfs:label>
+        <rdfs:label xml:lang="rue">Бар</rdfs:label>
+        <rdfs:label xml:lang="sk">Bar</rdfs:label>
+        <rdfs:label xml:lang="sl">Bar</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Бар</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Bar</rdfs:label>
+        <rdfs:label xml:lang="sv">Bar</rdfs:label>
+        <rdfs:label xml:lang="tl">Tindahang Inuman ng Alak</rdfs:label>
+        <rdfs:label xml:lang="tr">Bar</rdfs:label>
+        <rdfs:label xml:lang="uk">Бар</rdfs:label>
+        <rdfs:label xml:lang="vi">Quán Rượu</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">酒吧</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Bar/key/amenity/value/bar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Barbeque -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Barbeque">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Barbeque/key/amenity/value/barbeque"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Bbq -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bbq">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Bbq/key/amenity/value/bbq"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/BedAndBreakfast -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/BedAndBreakfast">
+        <rdfs:label xml:lang="af">Bed en Ontbyt</rdfs:label>
+        <rdfs:label xml:lang="aln">Bujtin dhe Mengjes</rdfs:label>
+        <rdfs:label xml:lang="ar">سرير وفطار</rdfs:label>
+        <rdfs:label xml:lang="arz">سرير وفطار</rdfs:label>
+        <rdfs:label xml:lang="ast">Cama y almuerzu (B&amp;B)</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Танная гасьцініца</rdfs:label>
+        <rdfs:label xml:lang="br">Bod ha boued</rdfs:label>
+        <rdfs:label xml:lang="ca">Llist i esmorzar (B&amp;B)</rdfs:label>
+        <rdfs:label xml:lang="cs">Ubytování Bed &amp; Breakfast</rdfs:label>
+        <rdfs:label xml:lang="da">Bed and Breakfast</rdfs:label>
+        <rdfs:label xml:lang="de">Bed and Breakfast</rdfs:label>
+        <rdfs:label xml:lang="dsb">Pśenocowanje ze snědanim</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Bed and Breakfast</rdfs:label>
+        <rdfs:label xml:lang="es">Cama y desayuno (B&amp;B)</rdfs:label>
+        <rdfs:label xml:lang="eu">Ohe eta gosari (B&amp;B)</rdfs:label>
+        <rdfs:label xml:lang="fa">تخت‌خواب و صبحانه</rdfs:label>
+        <rdfs:label xml:lang="fi">Aamiaismajoitus</rdfs:label>
+        <rdfs:label xml:lang="fr">Gîte</rdfs:label>
+        <rdfs:label xml:lang="gl">Cama e almorzo</rdfs:label>
+        <rdfs:label xml:lang="he">לינה וארוחת בוקר</rdfs:label>
+        <rdfs:label xml:lang="hr">Noćenje i doručak</rdfs:label>
+        <rdfs:label xml:lang="hsb">Přenocowanje ze snědanju</rdfs:label>
+        <rdfs:label xml:lang="hu">Vendégház</rdfs:label>
+        <rdfs:label xml:lang="ia">Bed and Breakfast</rdfs:label>
+        <rdfs:label xml:lang="it">Bed and Breakfast</rdfs:label>
+        <rdfs:label xml:lang="lv">Guļamvieta un brokastis</rdfs:label>
+        <rdfs:label xml:lang="mk">Полупансион</rdfs:label>
+        <rdfs:label xml:lang="nl">Pension</rdfs:label>
+        <rdfs:label xml:lang="no">Bed and Breakfast</rdfs:label>
+        <rdfs:label xml:lang="pl">Bed and Breakfast</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Cama e café da manhã</rdfs:label>
+        <rdfs:label xml:lang="ru">Полупансион</rdfs:label>
+        <rdfs:label xml:lang="rue">Ложко і фрыштик</rdfs:label>
+        <rdfs:label xml:lang="sk">Nocľah a raňajky</rdfs:label>
+        <rdfs:label xml:lang="sl">Nočitev z zajtrkom</rdfs:label>
+        <rdfs:label xml:lang="sq">Bujtin dhe Mengjes</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Полупансион</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Polupansion</rdfs:label>
+        <rdfs:label xml:lang="sv">Bad and breakfast</rdfs:label>
+        <rdfs:label xml:lang="tl">Kama at Almusal</rdfs:label>
+        <rdfs:label xml:lang="tr">Oda Kahvaltı</rdfs:label>
+        <rdfs:label xml:lang="uk">Ліжко та сніданок</rdfs:label>
+        <rdfs:label xml:lang="vi">Nhà trọ</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">床和早餐</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/TourismThing"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/BedAndBreakfast/key/tourism/value/bed_and_breakfast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Bench -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Bench">
+        <rdfs:label xml:lang="af">Bank</rdfs:label>
+        <rdfs:label xml:lang="aln">Stol</rdfs:label>
+        <rdfs:label xml:lang="ar">مقعد</rdfs:label>
+        <rdfs:label xml:lang="arz">مقعد</rdfs:label>
+        <rdfs:label xml:lang="ast">Bancu</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Лаўка</rdfs:label>
+        <rdfs:label xml:lang="br">Skaoñ</rdfs:label>
+        <rdfs:label xml:lang="ca">Banc</rdfs:label>
+        <rdfs:label xml:lang="cs">Lavička</rdfs:label>
+        <rdfs:label xml:lang="da">Bænk</rdfs:label>
+        <rdfs:label xml:lang="de">Bank</rdfs:label>
+        <rdfs:label xml:lang="dsb">Ławka</rdfs:label>
+        <rdfs:label xml:lang="el">Πάγκος</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Bench</rdfs:label>
+        <rdfs:label xml:lang="es">Banco</rdfs:label>
+        <rdfs:label xml:lang="et">Pink</rdfs:label>
+        <rdfs:label xml:lang="eu">Eserleku</rdfs:label>
+        <rdfs:label xml:lang="fa">نیمکت</rdfs:label>
+        <rdfs:label xml:lang="fi">Penkki</rdfs:label>
+        <rdfs:label xml:lang="fr">Banc</rdfs:label>
+        <rdfs:label xml:lang="fur">Bancjute</rdfs:label>
+        <rdfs:label xml:lang="gl">Banco</rdfs:label>
+        <rdfs:label xml:lang="he">ספסל</rdfs:label>
+        <rdfs:label xml:lang="hr">Klupa</rdfs:label>
+        <rdfs:label xml:lang="hsb">Ławka</rdfs:label>
+        <rdfs:label xml:lang="hu">Pad</rdfs:label>
+        <rdfs:label xml:lang="ia">Banco</rdfs:label>
+        <rdfs:label xml:lang="is">Bekkur</rdfs:label>
+        <rdfs:label xml:lang="it">Panchina</rdfs:label>
+        <rdfs:label xml:lang="ja">ベンチ</rdfs:label>
+        <rdfs:label xml:lang="ka">დასაჯდომი</rdfs:label>
+        <rdfs:label xml:lang="ku-latn">Textebend</rdfs:label>
+        <rdfs:label xml:lang="lt">Suoliukas</rdfs:label>
+        <rdfs:label xml:lang="lv">Soliņš</rdfs:label>
+        <rdfs:label xml:lang="mk">Клупа</rdfs:label>
+        <rdfs:label xml:lang="ms">Bangku</rdfs:label>
+        <rdfs:label xml:lang="nds">Bank</rdfs:label>
+        <rdfs:label xml:lang="nl">Bankje</rdfs:label>
+        <rdfs:label xml:lang="no">Benk</rdfs:label>
+        <rdfs:label xml:lang="pl">Ławka</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Banco (de praça)</rdfs:label>
+        <rdfs:label xml:lang="ru">Скамья</rdfs:label>
+        <rdfs:label xml:lang="sk">Lavička</rdfs:label>
+        <rdfs:label xml:lang="sl">Klop</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Клупа</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Klupa</rdfs:label>
+        <rdfs:label xml:lang="sv">Bänk</rdfs:label>
+        <rdfs:label xml:lang="tl">Bangko</rdfs:label>
+        <rdfs:label xml:lang="tr">Bank</rdfs:label>
+        <rdfs:label xml:lang="uk">Лавка</rdfs:label>
+        <rdfs:label xml:lang="vi">Ghế</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">长凳</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Bench/key/amenity/value/bench"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Biergarten -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Biergarten">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Biergarten/key/amenity/value/biergarten"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Cafe -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Cafe">
+        <rdfs:label xml:lang="af">Kafee</rdfs:label>
+        <rdfs:label xml:lang="aln">Kafene</rdfs:label>
+        <rdfs:label xml:lang="ar">مقهى</rdfs:label>
+        <rdfs:label xml:lang="arz">مقهى</rdfs:label>
+        <rdfs:label xml:lang="ast">Café</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Кавярня</rdfs:label>
+        <rdfs:label xml:lang="br">Kafedi</rdfs:label>
+        <rdfs:label xml:lang="ca">Cafè</rdfs:label>
+        <rdfs:label xml:lang="cs">Kavárna</rdfs:label>
+        <rdfs:label xml:lang="da">Café</rdfs:label>
+        <rdfs:label xml:lang="de">Café</rdfs:label>
+        <rdfs:label xml:lang="dsb">Kafejownja</rdfs:label>
+        <rdfs:label xml:lang="el">Καφετέρια</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Cafe</rdfs:label>
+        <rdfs:label xml:lang="es">Cafetería</rdfs:label>
+        <rdfs:label xml:lang="et">Kohvik</rdfs:label>
+        <rdfs:label xml:lang="eu">Kafetegi</rdfs:label>
+        <rdfs:label xml:lang="fa">کافه</rdfs:label>
+        <rdfs:label xml:lang="fi">Kahvila</rdfs:label>
+        <rdfs:label xml:lang="fr">Café</rdfs:label>
+        <rdfs:label xml:lang="gl">Cafetaría</rdfs:label>
+        <rdfs:label xml:lang="he">בית קפה</rdfs:label>
+        <rdfs:label xml:lang="hr">Caffe bar</rdfs:label>
+        <rdfs:label xml:lang="hsb">Kofejownja</rdfs:label>
+        <rdfs:label xml:lang="hu">Kávézó</rdfs:label>
+        <rdfs:label xml:lang="ia">Café</rdfs:label>
+        <rdfs:label xml:lang="is">Kaffihúsið</rdfs:label>
+        <rdfs:label xml:lang="it">Cafe</rdfs:label>
+        <rdfs:label xml:lang="ja">喫茶店</rdfs:label>
+        <rdfs:label xml:lang="ka">კაფე</rdfs:label>
+        <rdfs:label xml:lang="lb">Café</rdfs:label>
+        <rdfs:label xml:lang="lt">Kavinė</rdfs:label>
+        <rdfs:label xml:lang="lv">Kafejnīca</rdfs:label>
+        <rdfs:label xml:lang="mk">Кафуле</rdfs:label>
+        <rdfs:label xml:lang="ms">Kafe</rdfs:label>
+        <rdfs:label xml:lang="nds">Café</rdfs:label>
+        <rdfs:label xml:lang="nl">Café</rdfs:label>
+        <rdfs:label xml:lang="no">Kafé</rdfs:label>
+        <rdfs:label xml:lang="pl">Kawiarnia</rdfs:label>
+        <rdfs:label xml:lang="pt">Café</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Café</rdfs:label>
+        <rdfs:label xml:lang="ru">Кафе</rdfs:label>
+        <rdfs:label xml:lang="rue">Кафе</rdfs:label>
+        <rdfs:label xml:lang="sk">Kaviareň</rdfs:label>
+        <rdfs:label xml:lang="sl">Kavarna</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Кафе</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Kafe</rdfs:label>
+        <rdfs:label xml:lang="sv">Kafé</rdfs:label>
+        <rdfs:label xml:lang="tl">Kapihan</rdfs:label>
+        <rdfs:label xml:lang="tr">Cafe</rdfs:label>
+        <rdfs:label xml:lang="uk">Кафе</rdfs:label>
+        <rdfs:label xml:lang="vi">Quán Cà phê</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">咖啡馆</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Cafe/key/amenity/value/cafe"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Casino -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Casino">
+        <rdfs:label xml:lang="af">Casino</rdfs:label>
+        <rdfs:label xml:lang="aln">Kazino</rdfs:label>
+        <rdfs:label xml:lang="ar">نادي قمار</rdfs:label>
+        <rdfs:label xml:lang="arz">نادى قمار</rdfs:label>
+        <rdfs:label xml:lang="ast">Casino</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Казіно</rdfs:label>
+        <rdfs:label xml:lang="bn">ক্যাসিনো</rdfs:label>
+        <rdfs:label xml:lang="br">Kazino</rdfs:label>
+        <rdfs:label xml:lang="ca">Casino</rdfs:label>
+        <rdfs:label xml:lang="cs">Kasino</rdfs:label>
+        <rdfs:label xml:lang="da">Kasino</rdfs:label>
+        <rdfs:label xml:lang="de">Casino</rdfs:label>
+        <rdfs:label xml:lang="dsb">Kasino</rdfs:label>
+        <rdfs:label xml:lang="el">Καζίνο</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Casino</rdfs:label>
+        <rdfs:label xml:lang="es">Casino</rdfs:label>
+        <rdfs:label xml:lang="et">Kasiino</rdfs:label>
+        <rdfs:label xml:lang="eu">Kasino</rdfs:label>
+        <rdfs:label xml:lang="fi">Kasino</rdfs:label>
+        <rdfs:label xml:lang="fr">Casino</rdfs:label>
+        <rdfs:label xml:lang="fur">Casinò</rdfs:label>
+        <rdfs:label xml:lang="gl">Casino</rdfs:label>
+        <rdfs:label xml:lang="he">קזינו</rdfs:label>
+        <rdfs:label xml:lang="hr">Casino</rdfs:label>
+        <rdfs:label xml:lang="hsb">Kazino</rdfs:label>
+        <rdfs:label xml:lang="hu">Kaszinó</rdfs:label>
+        <rdfs:label xml:lang="ia">Casino</rdfs:label>
+        <rdfs:label xml:lang="it">Casinò</rdfs:label>
+        <rdfs:label xml:lang="ja">賭場</rdfs:label>
+        <rdfs:label xml:lang="ka">სამორინე</rdfs:label>
+        <rdfs:label xml:lang="lt">Kazino</rdfs:label>
+        <rdfs:label xml:lang="lv">Kazino</rdfs:label>
+        <rdfs:label xml:lang="mk">Казино</rdfs:label>
+        <rdfs:label xml:lang="ms">Kasino</rdfs:label>
+        <rdfs:label xml:lang="nds">Kasino</rdfs:label>
+        <rdfs:label xml:lang="nl">Casino</rdfs:label>
+        <rdfs:label xml:lang="no">Kasino</rdfs:label>
+        <rdfs:label xml:lang="pl">Kasyno</rdfs:label>
+        <rdfs:label xml:lang="pt">Casino</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Cassino</rdfs:label>
+        <rdfs:label xml:lang="ru">Казино</rdfs:label>
+        <rdfs:label xml:lang="sk">Kasíno</rdfs:label>
+        <rdfs:label xml:lang="sl">Kazino</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Казино</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Kazino</rdfs:label>
+        <rdfs:label xml:lang="sv">Kasino</rdfs:label>
+        <rdfs:label xml:lang="tl">Bahay-pasugalan</rdfs:label>
+        <rdfs:label xml:lang="tr">Kasino</rdfs:label>
+        <rdfs:label xml:lang="uk">Казино</rdfs:label>
+        <rdfs:label xml:lang="vi">Sòng bạc</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">赌场</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">賭場</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Leisure"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Casino/key/amenity/value/casino"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Casino/key/leisure/value/casino"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Cinema -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Cinema">
+        <rdfs:label xml:lang="af">Bioskoop</rdfs:label>
+        <rdfs:label xml:lang="aln">Kinema</rdfs:label>
+        <rdfs:label xml:lang="ar">سينما</rdfs:label>
+        <rdfs:label xml:lang="arz">سينما</rdfs:label>
+        <rdfs:label xml:lang="ast">Cine</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Кінатэатар</rdfs:label>
+        <rdfs:label xml:lang="bn">সিনেমা</rdfs:label>
+        <rdfs:label xml:lang="br">Sinema</rdfs:label>
+        <rdfs:label xml:lang="ca">Cinema</rdfs:label>
+        <rdfs:label xml:lang="cs">Kino</rdfs:label>
+        <rdfs:label xml:lang="da">Biograf</rdfs:label>
+        <rdfs:label xml:lang="de">Kino</rdfs:label>
+        <rdfs:label xml:lang="dsb">Kino</rdfs:label>
+        <rdfs:label xml:lang="el">Κινηματογράφος</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Cinema</rdfs:label>
+        <rdfs:label xml:lang="es">Cine</rdfs:label>
+        <rdfs:label xml:lang="et">Kino</rdfs:label>
+        <rdfs:label xml:lang="eu">Zinema</rdfs:label>
+        <rdfs:label xml:lang="fa">سینما</rdfs:label>
+        <rdfs:label xml:lang="fi">Elokuvateatteri</rdfs:label>
+        <rdfs:label xml:lang="fr">Cinéma</rdfs:label>
+        <rdfs:label xml:lang="fur">Cine</rdfs:label>
+        <rdfs:label xml:lang="gl">Cine</rdfs:label>
+        <rdfs:label xml:lang="he">בית קולנוע</rdfs:label>
+        <rdfs:label xml:lang="hr">Kino</rdfs:label>
+        <rdfs:label xml:lang="hsb">Kino</rdfs:label>
+        <rdfs:label xml:lang="hu">Mozi</rdfs:label>
+        <rdfs:label xml:lang="ia">Cinema</rdfs:label>
+        <rdfs:label xml:lang="is">Kvikmyndarhúsið</rdfs:label>
+        <rdfs:label xml:lang="it">Cinema</rdfs:label>
+        <rdfs:label xml:lang="ja">映画館</rdfs:label>
+        <rdfs:label xml:lang="ka">კინოთეატრი</rdfs:label>
+        <rdfs:label xml:lang="lb">Kino</rdfs:label>
+        <rdfs:label xml:lang="lt">Kino teatras</rdfs:label>
+        <rdfs:label xml:lang="lv">Kino</rdfs:label>
+        <rdfs:label xml:lang="mk">Кино</rdfs:label>
+        <rdfs:label xml:lang="ms">Pawagam</rdfs:label>
+        <rdfs:label xml:lang="nds">Kino</rdfs:label>
+        <rdfs:label xml:lang="nl">Bioscoop</rdfs:label>
+        <rdfs:label xml:lang="no">Kino</rdfs:label>
+        <rdfs:label xml:lang="pl">Kino</rdfs:label>
+        <rdfs:label xml:lang="ps">سينما</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Cinema</rdfs:label>
+        <rdfs:label xml:lang="ru">Кинотеатр</rdfs:label>
+        <rdfs:label xml:lang="sk">Kino</rdfs:label>
+        <rdfs:label xml:lang="sl">Kinematograf</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Биоскоп</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Bioskop</rdfs:label>
+        <rdfs:label xml:lang="sv">Biograf</rdfs:label>
+        <rdfs:label xml:lang="tl">Sinehan</rdfs:label>
+        <rdfs:label xml:lang="tr">Sinema</rdfs:label>
+        <rdfs:label xml:lang="uk">Кинотеатр</rdfs:label>
+        <rdfs:label xml:lang="vi">Rạp phim</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">电影院</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">電影院</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Cinema/key/amenity/value/cinema"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Club -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Club">
+        <rdfs:label xml:lang="af">Klub</rdfs:label>
+        <rdfs:label xml:lang="aln">Klub</rdfs:label>
+        <rdfs:label xml:lang="ar">نادي</rdfs:label>
+        <rdfs:label xml:lang="arz">نادي</rdfs:label>
+        <rdfs:label xml:lang="ast">Club</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Клюб</rdfs:label>
+        <rdfs:label xml:lang="br">Klub</rdfs:label>
+        <rdfs:label xml:lang="ca">Club</rdfs:label>
+        <rdfs:label xml:lang="cs">Klub</rdfs:label>
+        <rdfs:label xml:lang="da">Klub</rdfs:label>
+        <rdfs:label xml:lang="de">Club</rdfs:label>
+        <rdfs:label xml:lang="dsb">Klub</rdfs:label>
+        <rdfs:label xml:lang="el">Club</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Club</rdfs:label>
+        <rdfs:label xml:lang="es">Club</rdfs:label>
+        <rdfs:label xml:lang="et">Klubi</rdfs:label>
+        <rdfs:label xml:lang="eu">Diskoteka</rdfs:label>
+        <rdfs:label xml:lang="fi">Klubi</rdfs:label>
+        <rdfs:label xml:lang="fr">Club</rdfs:label>
+        <rdfs:label xml:lang="gl">Club</rdfs:label>
+        <rdfs:label xml:lang="he">מועדון</rdfs:label>
+        <rdfs:label xml:lang="hr">Klub</rdfs:label>
+        <rdfs:label xml:lang="hsb">Klub</rdfs:label>
+        <rdfs:label xml:lang="hu">Klub</rdfs:label>
+        <rdfs:label xml:lang="ia">Club</rdfs:label>
+        <rdfs:label xml:lang="it">Club</rdfs:label>
+        <rdfs:label xml:lang="ja">クラブ</rdfs:label>
+        <rdfs:label xml:lang="ka">კლუბი</rdfs:label>
+        <rdfs:label xml:lang="lt">Klubas</rdfs:label>
+        <rdfs:label xml:lang="lv">Klubs</rdfs:label>
+        <rdfs:label xml:lang="mk">Клуб</rdfs:label>
+        <rdfs:label xml:lang="ms">Kelab</rdfs:label>
+        <rdfs:label xml:lang="nds">Club</rdfs:label>
+        <rdfs:label xml:lang="nl">Club</rdfs:label>
+        <rdfs:label xml:lang="no">Klubb</rdfs:label>
+        <rdfs:label xml:lang="pl">Klub</rdfs:label>
+        <rdfs:label xml:lang="ps">کلب</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Clube</rdfs:label>
+        <rdfs:label xml:lang="ru">Клуб</rdfs:label>
+        <rdfs:label xml:lang="sk">Klub</rdfs:label>
+        <rdfs:label xml:lang="sl">Klub</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Клуб</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Klub</rdfs:label>
+        <rdfs:label xml:lang="sv">Klubb</rdfs:label>
+        <rdfs:label xml:lang="tl">Kapisanan</rdfs:label>
+        <rdfs:label xml:lang="tr">Kulüp</rdfs:label>
+        <rdfs:label xml:lang="uk">Клуб</rdfs:label>
+        <rdfs:label xml:lang="vi">Câu lạc bộ</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">俱乐部</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">俱樂部</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Leisure"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Club/key/amenity/value/club"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Club/key/leisure/value/club"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/CoffeeShop -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/CoffeeShop">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/CoffeeShop/key/amenity/value/coffeeshop"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/FastFood -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FastFood">
+        <rdfs:label xml:lang="af">Wegneemetes</rdfs:label>
+        <rdfs:label xml:lang="aln">Ushqim I shpejtë</rdfs:label>
+        <rdfs:label xml:lang="ar">وجبات سريعة</rdfs:label>
+        <rdfs:label xml:lang="arz">وجبات سريعة</rdfs:label>
+        <rdfs:label xml:lang="ast">Comida rápida</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Забягайлаўка</rdfs:label>
+        <rdfs:label xml:lang="br">Fast Food</rdfs:label>
+        <rdfs:label xml:lang="ca">Menjar ràpid</rdfs:label>
+        <rdfs:label xml:lang="cs">Rychlé občerstvení</rdfs:label>
+        <rdfs:label xml:lang="da">Fastfood</rdfs:label>
+        <rdfs:label xml:lang="de">Schnellimbiss</rdfs:label>
+        <rdfs:label xml:lang="dsb">Pójědankarnja</rdfs:label>
+        <rdfs:label xml:lang="el">Ταχυφαγείο</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Fast Food</rdfs:label>
+        <rdfs:label xml:lang="es">Comida rápida</rdfs:label>
+        <rdfs:label xml:lang="et">Kiirtoit</rdfs:label>
+        <rdfs:label xml:lang="eu">Janari Azkarra</rdfs:label>
+        <rdfs:label xml:lang="fi">Pikaruoka</rdfs:label>
+        <rdfs:label xml:lang="fr">Restauration rapide</rdfs:label>
+        <rdfs:label xml:lang="gl">Comida rápida</rdfs:label>
+        <rdfs:label xml:lang="he">מזון מהיר</rdfs:label>
+        <rdfs:label xml:lang="hr">Fast food</rdfs:label>
+        <rdfs:label xml:lang="hsb">Přikuski</rdfs:label>
+        <rdfs:label xml:lang="hu">Gyorsétterem</rdfs:label>
+        <rdfs:label xml:lang="ia">Fast food</rdfs:label>
+        <rdfs:label xml:lang="is">Skyndibitastaðurinn</rdfs:label>
+        <rdfs:label xml:lang="it">Fast Food</rdfs:label>
+        <rdfs:label xml:lang="ja">ファストフード</rdfs:label>
+        <rdfs:label xml:lang="ka">სწრაფი კვება</rdfs:label>
+        <rdfs:label xml:lang="lt">Greitas maistas</rdfs:label>
+        <rdfs:label xml:lang="lv">Bistro</rdfs:label>
+        <rdfs:label xml:lang="mk">Брза храна</rdfs:label>
+        <rdfs:label xml:lang="ms">Makanan Segera</rdfs:label>
+        <rdfs:label xml:lang="nds">Fast Food</rdfs:label>
+        <rdfs:label xml:lang="nl">Fast food</rdfs:label>
+        <rdfs:label xml:lang="no">Hurtigmat</rdfs:label>
+        <rdfs:label xml:lang="pl">Fast Food</rdfs:label>
+        <rdfs:label xml:lang="pt">Fast Food</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Fast Food</rdfs:label>
+        <rdfs:label xml:lang="ru">Палатка с едой</rdfs:label>
+        <rdfs:label xml:lang="sk">Rýchle občerstvenie</rdfs:label>
+        <rdfs:label xml:lang="sl">Hitra hrana</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Брза храна</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Brza hrana</rdfs:label>
+        <rdfs:label xml:lang="sv">Snabbmat</rdfs:label>
+        <rdfs:label xml:lang="tl">Kainang Pangmabilisan</rdfs:label>
+        <rdfs:label xml:lang="tr">Büfe / Fast Food</rdfs:label>
+        <rdfs:label xml:lang="uk">Забігайлівка</rdfs:label>
+        <rdfs:label xml:lang="vi">Nhà hàng Ăn nhanh</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">快餐</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">快餐</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/FastFood/key/amenity/value/fast_food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/FoodCourt -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/FoodCourt">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/FoodCourt/key/amenity/value/food_court"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Gallery -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Gallery">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Gallery/key/amenity/value/gallery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Gambling -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Gambling">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Gambling/key/amenity/value/gambling"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/GuestHouse -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/GuestHouse">
+        <rdfs:label xml:lang="af">Gastehuis</rdfs:label>
+        <rdfs:label xml:lang="aln">Shpi e musafirve</rdfs:label>
+        <rdfs:label xml:lang="ar">بيت ضيافة</rdfs:label>
+        <rdfs:label xml:lang="arz">بيت ضيافة</rdfs:label>
+        <rdfs:label xml:lang="ast">Agospiamientu</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Домік для гасьцей</rdfs:label>
+        <rdfs:label xml:lang="br">Ti herberc&apos;h</rdfs:label>
+        <rdfs:label xml:lang="ca">Alberg</rdfs:label>
+        <rdfs:label xml:lang="cs">Penzion</rdfs:label>
+        <rdfs:label xml:lang="da">Guesthouse (hotel)</rdfs:label>
+        <rdfs:label xml:lang="de">Gasthaus</rdfs:label>
+        <rdfs:label xml:lang="dsb">Góstny dom</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Guest House</rdfs:label>
+        <rdfs:label xml:lang="es">Albergue</rdfs:label>
+        <rdfs:label xml:lang="et">külalistemaja</rdfs:label>
+        <rdfs:label xml:lang="eu">Aterpe</rdfs:label>
+        <rdfs:label xml:lang="fr">Maison d&apos;hôte</rdfs:label>
+        <rdfs:label xml:lang="gl">Albergue</rdfs:label>
+        <rdfs:label xml:lang="he">בית הארחה</rdfs:label>
+        <rdfs:label xml:lang="hr">Apartman</rdfs:label>
+        <rdfs:label xml:lang="hsb">Hóstny dom</rdfs:label>
+        <rdfs:label xml:lang="hu">Vendégház</rdfs:label>
+        <rdfs:label xml:lang="ia">Albergo</rdfs:label>
+        <rdfs:label xml:lang="is">Gesthús</rdfs:label>
+        <rdfs:label xml:lang="it">Guest House</rdfs:label>
+        <rdfs:label xml:lang="ja">民宿</rdfs:label>
+        <rdfs:label xml:lang="ka">სასტუმრო სახლი</rdfs:label>
+        <rdfs:label xml:lang="lt">Svečių namai</rdfs:label>
+        <rdfs:label xml:lang="lv">Viesu nams</rdfs:label>
+        <rdfs:label xml:lang="mk">Пансион</rdfs:label>
+        <rdfs:label xml:lang="nds">Gasthuus</rdfs:label>
+        <rdfs:label xml:lang="nl">Gastenverblijf</rdfs:label>
+        <rdfs:label xml:lang="no">Gjestehus</rdfs:label>
+        <rdfs:label xml:lang="pl">Pensjonat</rdfs:label>
+        <rdfs:label xml:lang="ps">مېلمستون</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Albergue</rdfs:label>
+        <rdfs:label xml:lang="ru">Домик для гостей</rdfs:label>
+        <rdfs:label xml:lang="rue">Пензіон</rdfs:label>
+        <rdfs:label xml:lang="sk">Penzión</rdfs:label>
+        <rdfs:label xml:lang="sl">Penzion</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Гостинска кућа</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Gostinska kuća</rdfs:label>
+        <rdfs:label xml:lang="sv">Gäststuga</rdfs:label>
+        <rdfs:label xml:lang="tl">Bahay na Pampanauhin</rdfs:label>
+        <rdfs:label xml:lang="tr">Konuk Evi</rdfs:label>
+        <rdfs:label xml:lang="uk">Гостьовий будинок</rdfs:label>
+        <rdfs:label xml:lang="vi">Nhà khách</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">宾馆</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">賓館</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/TourismThing"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/GuestHouse/key/tourism/value/guest_house"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Hostel -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hostel">
+        <rdfs:label xml:lang="af">Hotel</rdfs:label>
+        <rdfs:label xml:lang="aln">Bujtine</rdfs:label>
+        <rdfs:label xml:lang="ar">سكن شباب</rdfs:label>
+        <rdfs:label xml:lang="arz">سكن شباب</rdfs:label>
+        <rdfs:label xml:lang="ast">Albergue</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Хостэл</rdfs:label>
+        <rdfs:label xml:lang="br">Herberc&apos;h</rdfs:label>
+        <rdfs:label xml:lang="ca">Hostal</rdfs:label>
+        <rdfs:label xml:lang="cs">Hostel</rdfs:label>
+        <rdfs:label xml:lang="da">Vandrerhjem</rdfs:label>
+        <rdfs:label xml:lang="de">Jugendherberge</rdfs:label>
+        <rdfs:label xml:lang="dsb">Młodownja</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Hostel</rdfs:label>
+        <rdfs:label xml:lang="es">Hostal</rdfs:label>
+        <rdfs:label xml:lang="et">Hostel</rdfs:label>
+        <rdfs:label xml:lang="eu">Ostatu</rdfs:label>
+        <rdfs:label xml:lang="fa">هتل</rdfs:label>
+        <rdfs:label xml:lang="fi">Hostelli</rdfs:label>
+        <rdfs:label xml:lang="fr">Auberge</rdfs:label>
+        <rdfs:label xml:lang="fur">Ostel</rdfs:label>
+        <rdfs:label xml:lang="gl">Hostal</rdfs:label>
+        <rdfs:label xml:lang="he">אכסנייה</rdfs:label>
+        <rdfs:label xml:lang="hr">Hostel</rdfs:label>
+        <rdfs:label xml:lang="hsb">Hospoda</rdfs:label>
+        <rdfs:label xml:lang="hu">Turistaszálló</rdfs:label>
+        <rdfs:label xml:lang="ia">Albergo</rdfs:label>
+        <rdfs:label xml:lang="it">Ostello</rdfs:label>
+        <rdfs:label xml:lang="ja">ホステル</rdfs:label>
+        <rdfs:label xml:lang="ka">ჰოსტელი</rdfs:label>
+        <rdfs:label xml:lang="lt">Hostelis</rdfs:label>
+        <rdfs:label xml:lang="lv">Hostelis</rdfs:label>
+        <rdfs:label xml:lang="mk">Хостел</rdfs:label>
+        <rdfs:label xml:lang="ms">Hostel</rdfs:label>
+        <rdfs:label xml:lang="nds">Jöögdharbarg</rdfs:label>
+        <rdfs:label xml:lang="nl">Jeugdherberg</rdfs:label>
+        <rdfs:label xml:lang="no">Vandrerhjem</rdfs:label>
+        <rdfs:label xml:lang="pl">Hostel</rdfs:label>
+        <rdfs:label xml:lang="ps">ليليه</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Abrigo</rdfs:label>
+        <rdfs:label xml:lang="ru">Хостел</rdfs:label>
+        <rdfs:label xml:lang="sk">Ubytovňa, internát</rdfs:label>
+        <rdfs:label xml:lang="sl">Hostel</rdfs:label>
+        <rdfs:label xml:lang="sq">Bujtine</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Хостел</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Hostel</rdfs:label>
+        <rdfs:label xml:lang="sv">Vandrarhem</rdfs:label>
+        <rdfs:label xml:lang="tl">Hostel</rdfs:label>
+        <rdfs:label xml:lang="tr">Hostel</rdfs:label>
+        <rdfs:label xml:lang="uk">Хостел</rdfs:label>
+        <rdfs:label xml:lang="vi">Nhà trọ</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">旅馆</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">旅舍</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/TourismThing"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Hostel/key/tourism/value/hostel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Hotel -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Hotel">
+        <rdfs:label xml:lang="af">Hotel</rdfs:label>
+        <rdfs:label xml:lang="aln">Hotel</rdfs:label>
+        <rdfs:label xml:lang="ar">فندق</rdfs:label>
+        <rdfs:label xml:lang="arz">فندق</rdfs:label>
+        <rdfs:label xml:lang="ast">Hotel</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Гатэль</rdfs:label>
+        <rdfs:label xml:lang="br">Leti</rdfs:label>
+        <rdfs:label xml:lang="ca">Hotel</rdfs:label>
+        <rdfs:label xml:lang="cs">Hotel</rdfs:label>
+        <rdfs:label xml:lang="da">Hotel</rdfs:label>
+        <rdfs:label xml:lang="de">Hotel</rdfs:label>
+        <rdfs:label xml:lang="dsb">Hotel</rdfs:label>
+        <rdfs:label xml:lang="el">Ξενοδοχείο</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Hotel</rdfs:label>
+        <rdfs:label xml:lang="es">Hotel</rdfs:label>
+        <rdfs:label xml:lang="et">Hotell</rdfs:label>
+        <rdfs:label xml:lang="eu">Hotel</rdfs:label>
+        <rdfs:label xml:lang="fa">هتل</rdfs:label>
+        <rdfs:label xml:lang="fi">Hotelli</rdfs:label>
+        <rdfs:label xml:lang="fr">Hôtel</rdfs:label>
+        <rdfs:label xml:lang="gl">Hotel</rdfs:label>
+        <rdfs:label xml:lang="he">בית מלון</rdfs:label>
+        <rdfs:label xml:lang="he">מלון</rdfs:label>
+        <rdfs:label xml:lang="hr">Hotel</rdfs:label>
+        <rdfs:label xml:lang="hsb">Hotel</rdfs:label>
+        <rdfs:label xml:lang="hu">Szálloda</rdfs:label>
+        <rdfs:label xml:lang="ia">Hotel</rdfs:label>
+        <rdfs:label xml:lang="is">Hótel</rdfs:label>
+        <rdfs:label xml:lang="is">Hótelið</rdfs:label>
+        <rdfs:label xml:lang="it">Hotel</rdfs:label>
+        <rdfs:label xml:lang="ja">ホテル</rdfs:label>
+        <rdfs:label xml:lang="ka">სასტუმრო</rdfs:label>
+        <rdfs:label xml:lang="ku-latn">Hotel</rdfs:label>
+        <rdfs:label xml:lang="lb">Hotel</rdfs:label>
+        <rdfs:label xml:lang="ln">Ndáko na mobémbo</rdfs:label>
+        <rdfs:label xml:lang="lt">Viešbutis</rdfs:label>
+        <rdfs:label xml:lang="lv">Viesnīca</rdfs:label>
+        <rdfs:label xml:lang="mk">Хотел</rdfs:label>
+        <rdfs:label xml:lang="ms">Hotel</rdfs:label>
+        <rdfs:label xml:lang="nds">Hotel</rdfs:label>
+        <rdfs:label xml:lang="nl">Hotel</rdfs:label>
+        <rdfs:label xml:lang="no">Hotell</rdfs:label>
+        <rdfs:label xml:lang="pl">Hotel</rdfs:label>
+        <rdfs:label xml:lang="ps">هوټل</rdfs:label>
+        <rdfs:label xml:lang="pt">Hotel</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Hotel</rdfs:label>
+        <rdfs:label xml:lang="ru">Гостиница</rdfs:label>
+        <rdfs:label xml:lang="ru">Гостинница</rdfs:label>
+        <rdfs:label xml:lang="rue">Готел</rdfs:label>
+        <rdfs:label xml:lang="sk">Hotel</rdfs:label>
+        <rdfs:label xml:lang="sl">Hotel</rdfs:label>
+        <rdfs:label xml:lang="sq">Hotel</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Хотел</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Hotel</rdfs:label>
+        <rdfs:label xml:lang="sv">Hotell</rdfs:label>
+        <rdfs:label xml:lang="te">హోటెల్</rdfs:label>
+        <rdfs:label xml:lang="tl">Otel</rdfs:label>
+        <rdfs:label xml:lang="tr">Hotel</rdfs:label>
+        <rdfs:label xml:lang="uk">Готель</rdfs:label>
+        <rdfs:label xml:lang="vi">Khách sạn</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">酒店</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">酒店</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/TourismThing"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Hotel/key/amenity/value/hotel"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Hotel/key/tourism/value/hotel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/IceCream -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/IceCream">
+        <rdfs:label xml:lang="af">Roomys</rdfs:label>
+        <rdfs:label xml:lang="aln">Akullore</rdfs:label>
+        <rdfs:label xml:lang="ar">مثلجات</rdfs:label>
+        <rdfs:label xml:lang="arz">مثلجات</rdfs:label>
+        <rdfs:label xml:lang="ast">Xelaos</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Марозіва</rdfs:label>
+        <rdfs:label xml:lang="br">Dienn skorn</rdfs:label>
+        <rdfs:label xml:lang="ca">Gelat</rdfs:label>
+        <rdfs:label xml:lang="cs">Zmrzlinárna</rdfs:label>
+        <rdfs:label xml:lang="da">Is</rdfs:label>
+        <rdfs:label xml:lang="de">Eisdiele</rdfs:label>
+        <rdfs:label xml:lang="dsb">Lod</rdfs:label>
+        <rdfs:label xml:lang="el">Παγωτό</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Ice Cream</rdfs:label>
+        <rdfs:label xml:lang="es">Heladería</rdfs:label>
+        <rdfs:label xml:lang="et">Jäätis</rdfs:label>
+        <rdfs:label xml:lang="eu">Izozkiak</rdfs:label>
+        <rdfs:label xml:lang="fa">بستنی فروشی</rdfs:label>
+        <rdfs:label xml:lang="fi">Jäätelö</rdfs:label>
+        <rdfs:label xml:lang="fr">Crème glacée</rdfs:label>
+        <rdfs:label xml:lang="fur">Gjelato</rdfs:label>
+        <rdfs:label xml:lang="gl">Xeadaría</rdfs:label>
+        <rdfs:label xml:lang="he">גלידה</rdfs:label>
+        <rdfs:label xml:lang="hr">Slastičarna</rdfs:label>
+        <rdfs:label xml:lang="hsb">Jědźny lód</rdfs:label>
+        <rdfs:label xml:lang="hu">Jégkrém</rdfs:label>
+        <rdfs:label xml:lang="ia">Gelato</rdfs:label>
+        <rdfs:label xml:lang="it">Gelateria</rdfs:label>
+        <rdfs:label xml:lang="ja">アイスクリーム販売店</rdfs:label>
+        <rdfs:label xml:lang="ka">ნაყინი</rdfs:label>
+        <rdfs:label xml:lang="lb">Glace</rdfs:label>
+        <rdfs:label xml:lang="lt">Ledai</rdfs:label>
+        <rdfs:label xml:lang="lv">Saldējums</rdfs:label>
+        <rdfs:label xml:lang="mk">Сладолед</rdfs:label>
+        <rdfs:label xml:lang="ms">Aiskrim</rdfs:label>
+        <rdfs:label xml:lang="nds">Iesladen</rdfs:label>
+        <rdfs:label xml:lang="nl">IJs</rdfs:label>
+        <rdfs:label xml:lang="no">Iskrem</rdfs:label>
+        <rdfs:label xml:lang="pl">Lodziarnia</rdfs:label>
+        <rdfs:label xml:lang="ps">آيسکريم</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Sorveteria</rdfs:label>
+        <rdfs:label xml:lang="ru">Мороженное</rdfs:label>
+        <rdfs:label xml:lang="sk">Zmrzlina</rdfs:label>
+        <rdfs:label xml:lang="sl">Sladoled</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Продавница сладоледа</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Prodavnica sladoleda</rdfs:label>
+        <rdfs:label xml:lang="sv">Glass</rdfs:label>
+        <rdfs:label xml:lang="tl">Sorbetes</rdfs:label>
+        <rdfs:label xml:lang="tr">Dondurma</rdfs:label>
+        <rdfs:label xml:lang="uk">Морозиво</rdfs:label>
+        <rdfs:label xml:lang="vi">Tiệm Kem</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">冰淇淋</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">冰淇淋</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/IceCream/key/amenity/value/ice_cream"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Kindergarten -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Kindergarten">
+        <rdfs:label xml:lang="af">Kleuterskool</rdfs:label>
+        <rdfs:label xml:lang="aln">Kopshti i fëmijëve</rdfs:label>
+        <rdfs:label xml:lang="ar">حضانة أطفال</rdfs:label>
+        <rdfs:label xml:lang="arz">حضانه أطفال</rdfs:label>
+        <rdfs:label xml:lang="ast">Guardería</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Дзіцячы садок</rdfs:label>
+        <rdfs:label xml:lang="br">Liorzh ar vugale</rdfs:label>
+        <rdfs:label xml:lang="ca">Jardí d&apos;infància</rdfs:label>
+        <rdfs:label xml:lang="cs">Mateřská škola</rdfs:label>
+        <rdfs:label xml:lang="da">Børnehave</rdfs:label>
+        <rdfs:label xml:lang="de">Kindergarten</rdfs:label>
+        <rdfs:label xml:lang="dsb">Źiśownja</rdfs:label>
+        <rdfs:label xml:lang="el">Νηπιαγωγείο</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Kindergarten</rdfs:label>
+        <rdfs:label xml:lang="es">Jardín de infancia</rdfs:label>
+        <rdfs:label xml:lang="et">Lasteaed</rdfs:label>
+        <rdfs:label xml:lang="eu">Haurtzaindegi</rdfs:label>
+        <rdfs:label xml:lang="fa">کودکستان</rdfs:label>
+        <rdfs:label xml:lang="fi">Päiväkoti</rdfs:label>
+        <rdfs:label xml:lang="fr">Jardin d&apos;enfant</rdfs:label>
+        <rdfs:label xml:lang="fur">Scuelute</rdfs:label>
+        <rdfs:label xml:lang="gl">Xardín de infancia</rdfs:label>
+        <rdfs:label xml:lang="he">גן ילדים</rdfs:label>
+        <rdfs:label xml:lang="hr">Dječji vrtić</rdfs:label>
+        <rdfs:label xml:lang="hsb">Pěstowarnja</rdfs:label>
+        <rdfs:label xml:lang="hu">Óvoda</rdfs:label>
+        <rdfs:label xml:lang="ia">Schola pro juvene infantes</rdfs:label>
+        <rdfs:label xml:lang="it">Asilo infantile</rdfs:label>
+        <rdfs:label xml:lang="ja">幼稚園</rdfs:label>
+        <rdfs:label xml:lang="ka">საბავშვო ბაღი</rdfs:label>
+        <rdfs:label xml:lang="ku-latn">zarrokxane</rdfs:label>
+        <rdfs:label xml:lang="lb">Spillschoul</rdfs:label>
+        <rdfs:label xml:lang="lt">Vaikų darželis</rdfs:label>
+        <rdfs:label xml:lang="lv">Bērnudārzs</rdfs:label>
+        <rdfs:label xml:lang="mk">Градинка</rdfs:label>
+        <rdfs:label xml:lang="ms">Tadika</rdfs:label>
+        <rdfs:label xml:lang="nds">Kinnergoorn</rdfs:label>
+        <rdfs:label xml:lang="nl">Kleuterschool</rdfs:label>
+        <rdfs:label xml:lang="no">Barnehage</rdfs:label>
+        <rdfs:label xml:lang="pl">Przedszkole</rdfs:label>
+        <rdfs:label xml:lang="ps">وړکتون</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Jardim de infância</rdfs:label>
+        <rdfs:label xml:lang="ru">Детский сад</rdfs:label>
+        <rdfs:label xml:lang="sk">Materská škola</rdfs:label>
+        <rdfs:label xml:lang="sl">Vrtec</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Обданиште</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Obdanište</rdfs:label>
+        <rdfs:label xml:lang="sv">Dagis</rdfs:label>
+        <rdfs:label xml:lang="tl">Kindergarten</rdfs:label>
+        <rdfs:label xml:lang="tr">Kreş</rdfs:label>
+        <rdfs:label xml:lang="uk">Дитячий садок</rdfs:label>
+        <rdfs:label xml:lang="vi">Tiểu học</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">幼儿园</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Kindergarten/key/amenity/value/kindergarten"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Leisure -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Leisure">
+        <meta:sourceKey>leisure</meta:sourceKey>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Motel -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Motel">
+        <rdfs:label xml:lang="af">Motel</rdfs:label>
+        <rdfs:label xml:lang="aln">Motel</rdfs:label>
+        <rdfs:label xml:lang="ar">نُزل</rdfs:label>
+        <rdfs:label xml:lang="arz">نُزل</rdfs:label>
+        <rdfs:label xml:lang="ast">Motel</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Матэль</rdfs:label>
+        <rdfs:label xml:lang="br">Motel</rdfs:label>
+        <rdfs:label xml:lang="ca">Motel</rdfs:label>
+        <rdfs:label xml:lang="cs">Motel</rdfs:label>
+        <rdfs:label xml:lang="da">Motel</rdfs:label>
+        <rdfs:label xml:lang="de">Motel</rdfs:label>
+        <rdfs:label xml:lang="dsb">Motel</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Motel</rdfs:label>
+        <rdfs:label xml:lang="es">Motel</rdfs:label>
+        <rdfs:label xml:lang="et">motell</rdfs:label>
+        <rdfs:label xml:lang="eu">Motel</rdfs:label>
+        <rdfs:label xml:lang="fa">متل</rdfs:label>
+        <rdfs:label xml:lang="fi">Motelli</rdfs:label>
+        <rdfs:label xml:lang="fr">Motel</rdfs:label>
+        <rdfs:label xml:lang="gl">Motel</rdfs:label>
+        <rdfs:label xml:lang="he">מלון דרכים</rdfs:label>
+        <rdfs:label xml:lang="hr">Motel</rdfs:label>
+        <rdfs:label xml:lang="hsb">Motel</rdfs:label>
+        <rdfs:label xml:lang="hu">Motel</rdfs:label>
+        <rdfs:label xml:lang="ia">Motel</rdfs:label>
+        <rdfs:label xml:lang="is">Mótel</rdfs:label>
+        <rdfs:label xml:lang="it">Motel</rdfs:label>
+        <rdfs:label xml:lang="ja">モーテル</rdfs:label>
+        <rdfs:label xml:lang="ka">მოტელი</rdfs:label>
+        <rdfs:label xml:lang="lt">Motelis</rdfs:label>
+        <rdfs:label xml:lang="lv">Motelis</rdfs:label>
+        <rdfs:label xml:lang="mk">Мотел</rdfs:label>
+        <rdfs:label xml:lang="nds">Motel</rdfs:label>
+        <rdfs:label xml:lang="nl">Motel</rdfs:label>
+        <rdfs:label xml:lang="no">Motell</rdfs:label>
+        <rdfs:label xml:lang="pl">Motel</rdfs:label>
+        <rdfs:label xml:lang="pt">Motel</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Motel</rdfs:label>
+        <rdfs:label xml:lang="ru">Мотель</rdfs:label>
+        <rdfs:label xml:lang="rue">Мотел</rdfs:label>
+        <rdfs:label xml:lang="sk">Motel</rdfs:label>
+        <rdfs:label xml:lang="sl">Motel</rdfs:label>
+        <rdfs:label xml:lang="sq">Motel</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Мотел</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Motel</rdfs:label>
+        <rdfs:label xml:lang="sv">Motell</rdfs:label>
+        <rdfs:label xml:lang="tl">Motel</rdfs:label>
+        <rdfs:label xml:lang="tr">Motel</rdfs:label>
+        <rdfs:label xml:lang="uk">Мотель</rdfs:label>
+        <rdfs:label xml:lang="vi">Khách sạn Dọc đường</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">汽车旅馆</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">汽車旅館</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/TourismThing"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Motel/key/tourism/value/motel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Museum -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Museum">
+        <rdfs:label xml:lang="af">Museum</rdfs:label>
+        <rdfs:label xml:lang="aln">Muze</rdfs:label>
+        <rdfs:label xml:lang="ar">متحف</rdfs:label>
+        <rdfs:label xml:lang="arz">متحف</rdfs:label>
+        <rdfs:label xml:lang="ast">Muséu</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Музэй</rdfs:label>
+        <rdfs:label xml:lang="br">Mirdi</rdfs:label>
+        <rdfs:label xml:lang="ca">Museu</rdfs:label>
+        <rdfs:label xml:lang="cs">Muzeum</rdfs:label>
+        <rdfs:label xml:lang="da">Museum</rdfs:label>
+        <rdfs:label xml:lang="de">Museum</rdfs:label>
+        <rdfs:label xml:lang="dsb">Muzeum</rdfs:label>
+        <rdfs:label xml:lang="el">Μουσείο</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Museum</rdfs:label>
+        <rdfs:label xml:lang="es">Museo</rdfs:label>
+        <rdfs:label xml:lang="et">muuseum</rdfs:label>
+        <rdfs:label xml:lang="eu">Museoa</rdfs:label>
+        <rdfs:label xml:lang="fa">موزه</rdfs:label>
+        <rdfs:label xml:lang="fi">Museo</rdfs:label>
+        <rdfs:label xml:lang="fr">Musée</rdfs:label>
+        <rdfs:label xml:lang="fur">Museu</rdfs:label>
+        <rdfs:label xml:lang="gl">Museo</rdfs:label>
+        <rdfs:label xml:lang="he">מוזיאון</rdfs:label>
+        <rdfs:label xml:lang="hr">Muzej</rdfs:label>
+        <rdfs:label xml:lang="hsb">Muzej</rdfs:label>
+        <rdfs:label xml:lang="hu">Múzeum</rdfs:label>
+        <rdfs:label xml:lang="ia">Museo</rdfs:label>
+        <rdfs:label xml:lang="is">Safn</rdfs:label>
+        <rdfs:label xml:lang="it">Museo</rdfs:label>
+        <rdfs:label xml:lang="ja">博物館</rdfs:label>
+        <rdfs:label xml:lang="ka">მუზეუმი</rdfs:label>
+        <rdfs:label xml:lang="lb">Musée</rdfs:label>
+        <rdfs:label xml:lang="lt">Muziejus</rdfs:label>
+        <rdfs:label xml:lang="lv">Muzejs</rdfs:label>
+        <rdfs:label xml:lang="mk">Музеј</rdfs:label>
+        <rdfs:label xml:lang="myv">Музей</rdfs:label>
+        <rdfs:label xml:lang="nds">Museum</rdfs:label>
+        <rdfs:label xml:lang="nl">Museum</rdfs:label>
+        <rdfs:label xml:lang="no">Museum</rdfs:label>
+        <rdfs:label xml:lang="pl">Muzeum</rdfs:label>
+        <rdfs:label xml:lang="ps">موزيم</rdfs:label>
+        <rdfs:label xml:lang="pt">Museu</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Museu</rdfs:label>
+        <rdfs:label xml:lang="ru">Музей</rdfs:label>
+        <rdfs:label xml:lang="rue">Музей</rdfs:label>
+        <rdfs:label xml:lang="sk">Múzeum</rdfs:label>
+        <rdfs:label xml:lang="sl">Muzej</rdfs:label>
+        <rdfs:label xml:lang="sq">Muze</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Музеј</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Muzej</rdfs:label>
+        <rdfs:label xml:lang="sv">Museum</rdfs:label>
+        <rdfs:label xml:lang="tl">Museo</rdfs:label>
+        <rdfs:label xml:lang="tr">Müze</rdfs:label>
+        <rdfs:label xml:lang="uk">Музей</rdfs:label>
+        <rdfs:label xml:lang="vi">Bảo tàng</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">博物馆</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">博物館</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/TourismThing"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Museum/key/tourism/value/museum"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Nightclub -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Nightclub">
+        <rdfs:label xml:lang="af">Nagklub</rdfs:label>
+        <rdfs:label xml:lang="aln">Night Club</rdfs:label>
+        <rdfs:label xml:lang="ar">نادي ليلي</rdfs:label>
+        <rdfs:label xml:lang="arz">نادى ليلي</rdfs:label>
+        <rdfs:label xml:lang="ast">Sala de fiestes</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Начны клюб</rdfs:label>
+        <rdfs:label xml:lang="br">Klub-noz</rdfs:label>
+        <rdfs:label xml:lang="ca">Club nocturn</rdfs:label>
+        <rdfs:label xml:lang="cs">Noční klub</rdfs:label>
+        <rdfs:label xml:lang="da">Natklub</rdfs:label>
+        <rdfs:label xml:lang="de">Nachtklub</rdfs:label>
+        <rdfs:label xml:lang="dsb">Nocny klub</rdfs:label>
+        <rdfs:label xml:lang="el">Night Club</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Night Club</rdfs:label>
+        <rdfs:label xml:lang="es">Club nocturno</rdfs:label>
+        <rdfs:label xml:lang="et">Ööklubi</rdfs:label>
+        <rdfs:label xml:lang="eu">Gau-klub</rdfs:label>
+        <rdfs:label xml:lang="fi">Yökerho</rdfs:label>
+        <rdfs:label xml:lang="fr">Boîte de nuit</rdfs:label>
+        <rdfs:label xml:lang="gl">Club nocturno</rdfs:label>
+        <rdfs:label xml:lang="hr">Noćni klub</rdfs:label>
+        <rdfs:label xml:lang="hsb">Nócny klub</rdfs:label>
+        <rdfs:label xml:lang="hu">Éjszakai bár</rdfs:label>
+        <rdfs:label xml:lang="ia">Club nocturne</rdfs:label>
+        <rdfs:label xml:lang="is">Næturklúbbur</rdfs:label>
+        <rdfs:label xml:lang="it">Locale notturno</rdfs:label>
+        <rdfs:label xml:lang="ja">ナイトクラブ</rdfs:label>
+        <rdfs:label xml:lang="ka">ღამის კლუბი</rdfs:label>
+        <rdfs:label xml:lang="lt">Naktinis klubas</rdfs:label>
+        <rdfs:label xml:lang="lv">Naktsklubs</rdfs:label>
+        <rdfs:label xml:lang="mk">Ноќен клуб</rdfs:label>
+        <rdfs:label xml:lang="ms">Kelab Malam</rdfs:label>
+        <rdfs:label xml:lang="nds">Nachtclub</rdfs:label>
+        <rdfs:label xml:lang="nl">Nachtclub</rdfs:label>
+        <rdfs:label xml:lang="no">Nattklubb</rdfs:label>
+        <rdfs:label xml:lang="pl">Klub nocny</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Casa noturna/Boate</rdfs:label>
+        <rdfs:label xml:lang="ru">ночной клуб</rdfs:label>
+        <rdfs:label xml:lang="sk">Nočný klub</rdfs:label>
+        <rdfs:label xml:lang="sl">Nočni klub</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Ноћни клуб</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Noćni klub</rdfs:label>
+        <rdfs:label xml:lang="sv">Nattklubb</rdfs:label>
+        <rdfs:label xml:lang="tl">Alibangbang</rdfs:label>
+        <rdfs:label xml:lang="tr">Gece Kulübü</rdfs:label>
+        <rdfs:label xml:lang="uk">Нічний клуб</rdfs:label>
+        <rdfs:label xml:lang="vi">Câu lạc bộ Đêm</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">夜总会</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">夜總會</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Nightclub/key/amenity/value/nightclub"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Pub -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Pub">
+        <rdfs:label xml:lang="af">Kroeg</rdfs:label>
+        <rdfs:label xml:lang="aln">Pijetore</rdfs:label>
+        <rdfs:label xml:lang="ar">حانة</rdfs:label>
+        <rdfs:label xml:lang="arz">حانة</rdfs:label>
+        <rdfs:label xml:lang="ast">Pub</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Шынок</rdfs:label>
+        <rdfs:label xml:lang="br">Tavarn</rdfs:label>
+        <rdfs:label xml:lang="ca">Pub</rdfs:label>
+        <rdfs:label xml:lang="cs">Hospoda</rdfs:label>
+        <rdfs:label xml:lang="da">Pub</rdfs:label>
+        <rdfs:label xml:lang="de">Kneipe</rdfs:label>
+        <rdfs:label xml:lang="dsb">Kjarcma</rdfs:label>
+        <rdfs:label xml:lang="el">Παμπ</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Pub</rdfs:label>
+        <rdfs:label xml:lang="es">Pub</rdfs:label>
+        <rdfs:label xml:lang="et">Pubi</rdfs:label>
+        <rdfs:label xml:lang="fa">میخانه</rdfs:label>
+        <rdfs:label xml:lang="fi">Pubi</rdfs:label>
+        <rdfs:label xml:lang="fr">Bar</rdfs:label>
+        <rdfs:label xml:lang="fur">Pub</rdfs:label>
+        <rdfs:label xml:lang="gl">Pub</rdfs:label>
+        <rdfs:label xml:lang="he">פאב</rdfs:label>
+        <rdfs:label xml:lang="hr">Pub</rdfs:label>
+        <rdfs:label xml:lang="hsb">Korčma</rdfs:label>
+        <rdfs:label xml:lang="hu">Kocsma</rdfs:label>
+        <rdfs:label xml:lang="ia">Taverna</rdfs:label>
+        <rdfs:label xml:lang="is">Pöbbinn</rdfs:label>
+        <rdfs:label xml:lang="it">Pub</rdfs:label>
+        <rdfs:label xml:lang="ja">パブ（立ち吞み屋）</rdfs:label>
+        <rdfs:label xml:lang="ka">პაბი</rdfs:label>
+        <rdfs:label xml:lang="lb">Bistro</rdfs:label>
+        <rdfs:label xml:lang="lt">Aludė</rdfs:label>
+        <rdfs:label xml:lang="lv">Krogs</rdfs:label>
+        <rdfs:label xml:lang="mk">Пивница</rdfs:label>
+        <rdfs:label xml:lang="ms">Pab</rdfs:label>
+        <rdfs:label xml:lang="nds">Kroog</rdfs:label>
+        <rdfs:label xml:lang="nl">Café</rdfs:label>
+        <rdfs:label xml:lang="no">Pub</rdfs:label>
+        <rdfs:label xml:lang="pl">Pub</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Pub</rdfs:label>
+        <rdfs:label xml:lang="ru">Паб</rdfs:label>
+        <rdfs:label xml:lang="sk">Krčma</rdfs:label>
+        <rdfs:label xml:lang="sl">Pivnica</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Паб</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Pab</rdfs:label>
+        <rdfs:label xml:lang="sv">Pub</rdfs:label>
+        <rdfs:label xml:lang="tl">Pangmadlang Bahay</rdfs:label>
+        <rdfs:label xml:lang="tr">Birahane</rdfs:label>
+        <rdfs:label xml:lang="uk">Паб</rdfs:label>
+        <rdfs:label xml:lang="vi">Quán rượu</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">酒馆</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Pub/key/amenity/value/pub"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Restaurant -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Restaurant">
+        <rdfs:label xml:lang="af">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="aln">Restorant</rdfs:label>
+        <rdfs:label xml:lang="ar">مطعم</rdfs:label>
+        <rdfs:label xml:lang="arz">مطعم</rdfs:label>
+        <rdfs:label xml:lang="ast">Restaurán</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Рэстаран</rdfs:label>
+        <rdfs:label xml:lang="br">Preti</rdfs:label>
+        <rdfs:label xml:lang="ca">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="cs">Restaurace</rdfs:label>
+        <rdfs:label xml:lang="da">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="de">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="dsb">Gósćeńc</rdfs:label>
+        <rdfs:label xml:lang="el">Εστιατόριο</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="es">Restaurante</rdfs:label>
+        <rdfs:label xml:lang="et">Restoran</rdfs:label>
+        <rdfs:label xml:lang="eu">Jatetxe</rdfs:label>
+        <rdfs:label xml:lang="fa">رستوران</rdfs:label>
+        <rdfs:label xml:lang="fi">Ravintola</rdfs:label>
+        <rdfs:label xml:lang="fr">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="fur">Ristorant</rdfs:label>
+        <rdfs:label xml:lang="gl">Restaurante</rdfs:label>
+        <rdfs:label xml:lang="he">מסעדה</rdfs:label>
+        <rdfs:label xml:lang="hr">Restoran</rdfs:label>
+        <rdfs:label xml:lang="hsb">Hosćenc</rdfs:label>
+        <rdfs:label xml:lang="hu">Étterem</rdfs:label>
+        <rdfs:label xml:lang="ia">Restaurante</rdfs:label>
+        <rdfs:label xml:lang="is">Veitingastaðurinn</rdfs:label>
+        <rdfs:label xml:lang="it">Ristorante</rdfs:label>
+        <rdfs:label xml:lang="ja">レストラン</rdfs:label>
+        <rdfs:label xml:lang="ka">რესტორანი</rdfs:label>
+        <rdfs:label xml:lang="lb">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="lt">Restoranas</rdfs:label>
+        <rdfs:label xml:lang="lv">Restorāns</rdfs:label>
+        <rdfs:label xml:lang="mk">Ресторан</rdfs:label>
+        <rdfs:label xml:lang="ms">Kedai Makan</rdfs:label>
+        <rdfs:label xml:lang="nds">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="nl">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="no">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="pl">Restauracja</rdfs:label>
+        <rdfs:label xml:lang="ps">خوړنځی</rdfs:label>
+        <rdfs:label xml:lang="pt">Restaurante</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Restaurante</rdfs:label>
+        <rdfs:label xml:lang="ru">Ресторан</rdfs:label>
+        <rdfs:label xml:lang="sk">Reštaurácia</rdfs:label>
+        <rdfs:label xml:lang="sl">Restavracija</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Ресторан</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Restoran</rdfs:label>
+        <rdfs:label xml:lang="sv">Restaurang</rdfs:label>
+        <rdfs:label xml:lang="tl">Kainan</rdfs:label>
+        <rdfs:label xml:lang="tr">Restoran</rdfs:label>
+        <rdfs:label xml:lang="uk">Ресторан</rdfs:label>
+        <rdfs:label xml:lang="vi">Nhà hàng</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">餐厅</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Restaurant/key/amenity/value/restaurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/SportsCentre -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/SportsCentre">
+        <rdfs:label xml:lang="af">Sport-sentrum</rdfs:label>
+        <rdfs:label xml:lang="aln">Qendër Sportive</rdfs:label>
+        <rdfs:label xml:lang="ar">مركز رياضي</rdfs:label>
+        <rdfs:label xml:lang="arz">مركز رياضي</rdfs:label>
+        <rdfs:label xml:lang="ast">Centru deportivu</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Спартовы цэнтар</rdfs:label>
+        <rdfs:label xml:lang="br">Kreizenn sport</rdfs:label>
+        <rdfs:label xml:lang="ca">Centre esportiu</rdfs:label>
+        <rdfs:label xml:lang="cs">Sportovní centrum</rdfs:label>
+        <rdfs:label xml:lang="da">Sportscenter</rdfs:label>
+        <rdfs:label xml:lang="de">Sportzentrum</rdfs:label>
+        <rdfs:label xml:lang="dsb">Sportowy centrum</rdfs:label>
+        <rdfs:label xml:lang="el">Αθλητικό Κέντρο</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Sports Centre</rdfs:label>
+        <rdfs:label xml:lang="es">Centro deportivo</rdfs:label>
+        <rdfs:label xml:lang="et">Spordikeskus</rdfs:label>
+        <rdfs:label xml:lang="eu">Kiroldegi</rdfs:label>
+        <rdfs:label xml:lang="fi">Urheilukeskus</rdfs:label>
+        <rdfs:label xml:lang="fr">Centre sportif</rdfs:label>
+        <rdfs:label xml:lang="fur">Centri sportîf</rdfs:label>
+        <rdfs:label xml:lang="gl">Centro deportivo</rdfs:label>
+        <rdfs:label xml:lang="hr">Sportski centar</rdfs:label>
+        <rdfs:label xml:lang="hsb">Sportowy centrum</rdfs:label>
+        <rdfs:label xml:lang="hu">Sportközpont</rdfs:label>
+        <rdfs:label xml:lang="ia">Centro sportive</rdfs:label>
+        <rdfs:label xml:lang="is">Íþróttamiðstöðin</rdfs:label>
+        <rdfs:label xml:lang="it">Centro sportivo</rdfs:label>
+        <rdfs:label xml:lang="ja">スポーツセンター</rdfs:label>
+        <rdfs:label xml:lang="ka">სპორტული ცენტრი</rdfs:label>
+        <rdfs:label xml:lang="lt">Sporto centras</rdfs:label>
+        <rdfs:label xml:lang="lv">Sporta centrs</rdfs:label>
+        <rdfs:label xml:lang="mk">Спортски центар</rdfs:label>
+        <rdfs:label xml:lang="ms">Pusat Sukan</rdfs:label>
+        <rdfs:label xml:lang="nds">Sportzentrum</rdfs:label>
+        <rdfs:label xml:lang="nl">Sportcentrum</rdfs:label>
+        <rdfs:label xml:lang="no">Sportssenter</rdfs:label>
+        <rdfs:label xml:lang="pl">Centrum sportowe</rdfs:label>
+        <rdfs:label xml:lang="pt">Centro Desportivo</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Centro Esportivo</rdfs:label>
+        <rdfs:label xml:lang="ru">Спортивный центр</rdfs:label>
+        <rdfs:label xml:lang="sk">Športové stredisko</rdfs:label>
+        <rdfs:label xml:lang="sl">Športni center</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Спортски центар</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Sportski centar</rdfs:label>
+        <rdfs:label xml:lang="sv">Sporthall</rdfs:label>
+        <rdfs:label xml:lang="tl">Lunduyang Pampalakasan</rdfs:label>
+        <rdfs:label xml:lang="tr">Spor Merkezi</rdfs:label>
+        <rdfs:label xml:lang="uk">Спортивний центр</rdfs:label>
+        <rdfs:label xml:lang="vi">Trung tâm Thể thao</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">体育馆</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Leisure"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/SportsCentre/key/leisure/value/sports_centre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Stripclub -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Stripclub">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Stripclub/key/amenity/value/stripclub"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/TakeAway -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TakeAway">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/TakeAway/key/amenity/value/take_away"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Theatre -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Theatre">
+        <rdfs:label xml:lang="af">Teater</rdfs:label>
+        <rdfs:label xml:lang="aln">Teatër</rdfs:label>
+        <rdfs:label xml:lang="ar">مسرح</rdfs:label>
+        <rdfs:label xml:lang="arz">مسرح</rdfs:label>
+        <rdfs:label xml:lang="ast">Teatru</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Тэатар</rdfs:label>
+        <rdfs:label xml:lang="br">C&apos;hoariva</rdfs:label>
+        <rdfs:label xml:lang="ca">Teatre</rdfs:label>
+        <rdfs:label xml:lang="cs">Divadlo</rdfs:label>
+        <rdfs:label xml:lang="da">Teater</rdfs:label>
+        <rdfs:label xml:lang="de">Theater</rdfs:label>
+        <rdfs:label xml:lang="dsb">Źiwadło</rdfs:label>
+        <rdfs:label xml:lang="el">Θέατρο</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Theatre</rdfs:label>
+        <rdfs:label xml:lang="es">Teatro</rdfs:label>
+        <rdfs:label xml:lang="et">Teater</rdfs:label>
+        <rdfs:label xml:lang="eu">Antzokia</rdfs:label>
+        <rdfs:label xml:lang="fa">تئاتر</rdfs:label>
+        <rdfs:label xml:lang="fi">Teatteri</rdfs:label>
+        <rdfs:label xml:lang="fr">Théâtre</rdfs:label>
+        <rdfs:label xml:lang="fur">Teatri</rdfs:label>
+        <rdfs:label xml:lang="gl">Teatro</rdfs:label>
+        <rdfs:label xml:lang="he">תיאטרון</rdfs:label>
+        <rdfs:label xml:lang="hr">Kazalište</rdfs:label>
+        <rdfs:label xml:lang="hsb">Dźiwadło</rdfs:label>
+        <rdfs:label xml:lang="hu">Színház</rdfs:label>
+        <rdfs:label xml:lang="ia">Theatro</rdfs:label>
+        <rdfs:label xml:lang="is">Leikhúsið</rdfs:label>
+        <rdfs:label xml:lang="it">Teatro</rdfs:label>
+        <rdfs:label xml:lang="ja">劇場</rdfs:label>
+        <rdfs:label xml:lang="ka">თეატრი</rdfs:label>
+        <rdfs:label xml:lang="ku-latn">Şano</rdfs:label>
+        <rdfs:label xml:lang="lb">Theater</rdfs:label>
+        <rdfs:label xml:lang="lt">Teatras</rdfs:label>
+        <rdfs:label xml:lang="lv">Teātris</rdfs:label>
+        <rdfs:label xml:lang="mk">Театар</rdfs:label>
+        <rdfs:label xml:lang="ms">Teater</rdfs:label>
+        <rdfs:label xml:lang="myv">Театра</rdfs:label>
+        <rdfs:label xml:lang="nds">Theater</rdfs:label>
+        <rdfs:label xml:lang="nl">Theater</rdfs:label>
+        <rdfs:label xml:lang="no">Teater</rdfs:label>
+        <rdfs:label xml:lang="pl">Teatr</rdfs:label>
+        <rdfs:label xml:lang="ps">نندارتون</rdfs:label>
+        <rdfs:label xml:lang="pt">Teatro</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Teatro</rdfs:label>
+        <rdfs:label xml:lang="ru">Театр</rdfs:label>
+        <rdfs:label xml:lang="sk">Divadlo</rdfs:label>
+        <rdfs:label xml:lang="sl">Gledališče</rdfs:label>
+        <rdfs:label xml:lang="sq">Teatër</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Позориште</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Pozorište</rdfs:label>
+        <rdfs:label xml:lang="sv">Teater</rdfs:label>
+        <rdfs:label xml:lang="tl">Tanghalan</rdfs:label>
+        <rdfs:label xml:lang="tr">Tiyatro</rdfs:label>
+        <rdfs:label xml:lang="uk">Театр</rdfs:label>
+        <rdfs:label xml:lang="vi">Nhà hát</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">剧院</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Theatre/key/amenity/value/theatre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/TourismThing -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/TourismThing">
+        <meta:sourceKey>tourism</meta:sourceKey>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Tourist -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Tourist">
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/Amenity"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Tourist/key/amenity/value/tourist"/>
+    </owl:Class>
+    
+
+
+    <!-- http://linkedgeodata.org/ontology/Zoo -->
+
+    <owl:Class rdf:about="http://linkedgeodata.org/ontology/Zoo">
+        <rdfs:label xml:lang="af">Dieretuin</rdfs:label>
+        <rdfs:label xml:lang="aln">Kopsht Zoologjik</rdfs:label>
+        <rdfs:label xml:lang="ar">حديقة حيوانات</rdfs:label>
+        <rdfs:label xml:lang="arz">حديقه حيوانات</rdfs:label>
+        <rdfs:label xml:lang="ast">Zoo</rdfs:label>
+        <rdfs:label xml:lang="be-tarask">Заапарк</rdfs:label>
+        <rdfs:label xml:lang="br">Zoo</rdfs:label>
+        <rdfs:label xml:lang="ca">Zoològic</rdfs:label>
+        <rdfs:label xml:lang="cs">Zoo</rdfs:label>
+        <rdfs:label xml:lang="da">Zoologisk have</rdfs:label>
+        <rdfs:label xml:lang="de">Zoo</rdfs:label>
+        <rdfs:label xml:lang="dsb">Coo</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Zoo</rdfs:label>
+        <rdfs:label xml:lang="es">Zoológico</rdfs:label>
+        <rdfs:label xml:lang="et">Loomaaed</rdfs:label>
+        <rdfs:label xml:lang="eu">Zoologiko</rdfs:label>
+        <rdfs:label xml:lang="fa">باغ وحش</rdfs:label>
+        <rdfs:label xml:lang="fi">Eläintarha</rdfs:label>
+        <rdfs:label xml:lang="fr">Zoo</rdfs:label>
+        <rdfs:label xml:lang="fur">Zoo</rdfs:label>
+        <rdfs:label xml:lang="gl">Zoolóxico</rdfs:label>
+        <rdfs:label xml:lang="he">גן חיות</rdfs:label>
+        <rdfs:label xml:lang="hr">Zoo</rdfs:label>
+        <rdfs:label xml:lang="hsb">Coo</rdfs:label>
+        <rdfs:label xml:lang="hu">Állatkert</rdfs:label>
+        <rdfs:label xml:lang="ia">Jardin zoologic</rdfs:label>
+        <rdfs:label xml:lang="is">Dýragarður</rdfs:label>
+        <rdfs:label xml:lang="it">Zoo</rdfs:label>
+        <rdfs:label xml:lang="ja">動物園</rdfs:label>
+        <rdfs:label xml:lang="ka">ზოოპარკი</rdfs:label>
+        <rdfs:label xml:lang="ku-latn">Baxçeyê heywanan</rdfs:label>
+        <rdfs:label xml:lang="lb">Zoo</rdfs:label>
+        <rdfs:label xml:lang="lt">Zoologijos sodas</rdfs:label>
+        <rdfs:label xml:lang="lv">Zooloģiskais dārzs</rdfs:label>
+        <rdfs:label xml:lang="mk">Зоолошка</rdfs:label>
+        <rdfs:label xml:lang="ms">Taman Haiwan</rdfs:label>
+        <rdfs:label xml:lang="myv">Зоопарк</rdfs:label>
+        <rdfs:label xml:lang="nds">Zoo</rdfs:label>
+        <rdfs:label xml:lang="nl">Dierentuin</rdfs:label>
+        <rdfs:label xml:lang="no">Dyrepark</rdfs:label>
+        <rdfs:label xml:lang="pl">Zoo</rdfs:label>
+        <rdfs:label xml:lang="ps">ژوبڼ</rdfs:label>
+        <rdfs:label xml:lang="pt">Jardim zoológico</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Zoológico</rdfs:label>
+        <rdfs:label xml:lang="ru">Зоопарк</rdfs:label>
+        <rdfs:label xml:lang="rue">Зоопарк</rdfs:label>
+        <rdfs:label xml:lang="sk">Zoo</rdfs:label>
+        <rdfs:label xml:lang="sl">Živalski vrt</rdfs:label>
+        <rdfs:label xml:lang="sq">Kopsht zoologjik</rdfs:label>
+        <rdfs:label xml:lang="sr-ec">Зоолошки врт</rdfs:label>
+        <rdfs:label xml:lang="sr-el">Zoološki vrt</rdfs:label>
+        <rdfs:label xml:lang="sv">Djurpark</rdfs:label>
+        <rdfs:label xml:lang="te">జంతుప్రదర్శనశాల</rdfs:label>
+        <rdfs:label xml:lang="tl">Hayupan</rdfs:label>
+        <rdfs:label xml:lang="tr">Hayvanat bahçesi</rdfs:label>
+        <rdfs:label xml:lang="uk">Зоопарк</rdfs:label>
+        <rdfs:label xml:lang="vi">Vườn thú</rdfs:label>
+        <rdfs:label xml:lang="zh-hans">动物园</rdfs:label>
+        <rdfs:label xml:lang="zh-hant">動物園</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://linkedgeodata.org/ontology/TourismThing"/>
+        <meta:sourceTag rdf:resource="http://linkedgeodata.org/ontology/Zoo/key/tourism/value/zoo"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Casino/key/amenity/value/casino">
+        <meta:value>casino</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Hostel/key/tourism/value/hostel">
+        <meta:key>tourism</meta:key>
+        <meta:value>hostel</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Bar/key/amenity/value/bar">
+        <meta:key>amenity</meta:key>
+        <meta:value>bar</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Bench/key/amenity/value/bench">
+        <meta:key>amenity</meta:key>
+        <meta:value>bench</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/SportsCentre/key/leisure/value/sports_centre">
+        <meta:value>sports_centre</meta:value>
+        <meta:key>leisure</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/IceCream/key/amenity/value/ice_cream">
+        <meta:value>ice_cream</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Club/key/amenity/value/club">
+        <meta:value>club</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Motel/key/tourism/value/motel">
+        <meta:key>tourism</meta:key>
+        <meta:value>motel</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Tourist/key/amenity/value/tourist">
+        <meta:key>amenity</meta:key>
+        <meta:value>tourist</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Attraction/key/tourism/value/attraction">
+        <meta:value>attraction</meta:value>
+        <meta:key>tourism</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Zoo/key/tourism/value/zoo">
+        <meta:key>tourism</meta:key>
+        <meta:value>zoo</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Kindergarten/key/amenity/value/kindergarten">
+        <meta:value>kindergarten</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Stripclub/key/amenity/value/stripclub">
+        <meta:key>amenity</meta:key>
+        <meta:value>stripclub</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/TakeAway/key/amenity/value/take_away">
+        <meta:value>take_away</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Club/key/leisure/value/club">
+        <meta:key>leisure</meta:key>
+        <meta:value>club</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Casino/key/leisure/value/casino">
+        <meta:key>leisure</meta:key>
+        <meta:value>casino</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/FoodCourt/key/amenity/value/food_court">
+        <meta:value>food_court</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Gambling/key/amenity/value/gambling">
+        <meta:key>amenity</meta:key>
+        <meta:value>gambling</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Artwork/key/tourism/value/artwork">
+        <meta:value>artwork</meta:value>
+        <meta:key>tourism</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Barbeque/key/amenity/value/barbeque">
+        <meta:key>amenity</meta:key>
+        <meta:value>barbeque</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Restaurant/key/amenity/value/restaurant">
+        <meta:value>restaurant</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Bbq/key/amenity/value/bbq">
+        <meta:value>bbq</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Pub/key/amenity/value/pub">
+        <meta:value>pub</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Biergarten/key/amenity/value/biergarten">
+        <meta:key>amenity</meta:key>
+        <meta:value>biergarten</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Gallery/key/amenity/value/gallery">
+        <meta:value>gallery</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Cinema/key/amenity/value/cinema">
+        <meta:key>amenity</meta:key>
+        <meta:value>cinema</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/FastFood/key/amenity/value/fast_food">
+        <meta:key>amenity</meta:key>
+        <meta:value>fast_food</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Hotel/key/tourism/value/hotel">
+        <meta:key>tourism</meta:key>
+        <meta:value>hotel</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/BedAndBreakfast/key/tourism/value/bed_and_breakfast">
+        <meta:value>bed_and_breakfast</meta:value>
+        <meta:key>tourism</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Nightclub/key/amenity/value/nightclub">
+        <meta:value>nightclub</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/ArtsCentre/key/amenity/value/arts_centre">
+        <meta:value>arts_centre</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Artwork/key/amenity/value/artwork">
+        <meta:value>artwork</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/CoffeeShop/key/amenity/value/coffeeshop">
+        <meta:value>coffeeshop</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Hotel/key/amenity/value/hotel">
+        <meta:key>amenity</meta:key>
+        <meta:value>hotel</meta:value>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Cafe/key/amenity/value/cafe">
+        <meta:value>cafe</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/ArtGallery/key/amenity/value/art_gallery">
+        <meta:value>art_gallery</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Museum/key/tourism/value/museum">
+        <meta:value>museum</meta:value>
+        <meta:key>tourism</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/Theatre/key/amenity/value/theatre">
+        <meta:value>theatre</meta:value>
+        <meta:key>amenity</meta:key>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://linkedgeodata.org/ontology/GuestHouse/key/tourism/value/guest_house">
+        <meta:value>guest_house</meta:value>
+        <meta:key>tourism</meta:key>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

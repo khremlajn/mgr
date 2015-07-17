@@ -14,6 +14,7 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayer;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -24,6 +25,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.SwingWorker;
 import javax.swing.UIManager;
 
 import java.awt.Component;
@@ -35,11 +37,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.ExecutionException;
 
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
@@ -50,6 +58,7 @@ import mgr.jena.osm.OSMNode;
 import mgr.jena.osm.OSMReader;
 import mgr.jena.osm.OSMReview;
 import mgr.jena.osm.OSMUser;
+import mgr.jena.recommendation.itembased.ItemRecommender;
 import mgr.jena.recommendation.stereotypebased.StereotypeRecommender;
 import mgr.jena.recommendation.userbased.UserNode;
 import mgr.jena.recommendation.userbased.UserRecommender;
@@ -171,6 +180,68 @@ public class MainWindow {
 		//JOptionPane.showMessageDialog(frame, "Position changed to : " + position.toString() );
 	}
 	
+	private void createRaport(OSMUser user, String stereotypeName,  Map<OSMNode , Double> usersRec , Map<OSMNode , Double> stereotypesRec, Map<OSMNode , Double> itemsRec)
+	{
+		try {
+			FileOutputStream fos = new FileOutputStream("RecommendationRaport.txt");
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+			bw.write("User Reviews: ");
+			bw.newLine();
+			Iterator<Entry<Long , OSMReview>> iterator = user.getReviews().entrySet().iterator();
+			while (iterator.hasNext()) {
+		        Map.Entry<Long , OSMReview> pair = iterator.next();
+		        bw.write("{ mark: " + pair.getValue().getMark());
+		        bw.newLine();
+		        bw.write(pair.getValue().getNode().toString());
+		        bw.write("}");
+		        bw.newLine();
+		    }
+			
+			Iterator<Entry<OSMNode , Double>> it = usersRec.entrySet().iterator();
+			bw.write("User Recommendations: ");
+			bw.newLine();
+			while (it.hasNext()) {
+		        Map.Entry<OSMNode , Double> pair = it.next();
+		        bw.write("{ mark: " + pair.getValue());
+		        bw.newLine();
+		        bw.write(pair.getKey().toString());
+		        bw.write("}");
+		        bw.newLine();
+		    }
+			it = stereotypesRec.entrySet().iterator();
+			bw.write("Stereotype winner: " + stereotypeName);
+			bw.newLine();
+			bw.write("Stereotype Recommendations: ");
+			bw.newLine();
+			while (it.hasNext()) {
+		        Map.Entry<OSMNode , Double> pair = it.next();
+		        bw.write("{ mark: " + pair.getValue());
+		        bw.newLine();
+		        bw.write(pair.getKey().toString());
+		        bw.write("}");
+		        bw.newLine();
+		    }
+			it = itemsRec.entrySet().iterator();
+			bw.write("Items Recommendations: ");
+			bw.newLine();
+			while (it.hasNext()) {
+		        Map.Entry<OSMNode , Double> pair = it.next();
+		        bw.write("{ mark: " + pair.getValue());
+		        bw.newLine();
+		        bw.write(pair.getKey().toString());
+		        bw.write("}");
+		        bw.newLine();
+		    }
+			bw.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	private void recommend()
 	{
 		if(currentUser == null)
@@ -179,7 +250,7 @@ public class MainWindow {
 		}
 		
 		Map<String, OSMUser> users = rdfReader.loadUsersOSM(nodes);
-		Map<Long , Double> usersRec = new HashMap<Long,Double>();
+		Map<OSMNode , Double> usersRec = new HashMap<OSMNode,Double>();
 		if(mnUserRecommendation.isSelected())
 		{
 			UserRecommender userRecommender = new UserRecommender();
@@ -187,18 +258,27 @@ public class MainWindow {
 			
 		}
 		Map<OSMNode,Double> stereotypeRec = new HashMap<OSMNode,Double>();
+		String stereotypeName = "";
 		if(mnStereotypeRecommendation.isSelected())
 		{
 			StereotypeRecommender stereotypeReccommender = new StereotypeRecommender();
 			stereotypeRec = stereotypeReccommender.getRecommendations(currentUser.getUserID(), users);
+			stereotypeName = stereotypeReccommender.winner(currentUser);
 		}
-		Iterator<Entry<Long , Double>> it = usersRec.entrySet().iterator();
+		
+		Map<OSMNode , Double> itemsRec = new HashMap<OSMNode,Double>();
+		if(mnItemRecommendation.isSelected())
+		{
+			ItemRecommender itemRecommender = new ItemRecommender();
+			itemsRec = itemRecommender.getRecommendations(currentUser,nodes.values());
+		}
+		Iterator<Entry<OSMNode , Double>> it = usersRec.entrySet().iterator();
 	    while (it.hasNext()) {
-	        Map.Entry<Long , Double> pair = it.next();
+	        Map.Entry<OSMNode , Double> pair = it.next();
 	        Iterator<Entry<MapMarker , OSMNode>> it1 = nodes.entrySet().iterator();
 	        while (it1.hasNext()) {
 		        Map.Entry<MapMarker , OSMNode> pair1 = it1.next();
-		        if(pair1.getValue().id == pair.getKey())
+		        if(pair1.getValue().id == pair.getKey().id)
 		        {
 		        	MapMarkerDot m = (MapMarkerDot) pair1.getKey();
 		        	m.setBackColor(MarkerColors.RECOMMENDED_NODE);
@@ -225,6 +305,25 @@ public class MainWindow {
 		        }
 	        }
 	    }
+	    counter  = 0;
+	    Iterator<Entry<OSMNode , Double>> itR = itemsRec.entrySet().iterator();
+	    while (itR.hasNext() && counter < maxCounter) {
+	        Map.Entry<OSMNode , Double> pair = itR.next();
+	        Iterator<Entry<MapMarker , OSMNode>> itR1 = nodes.entrySet().iterator();
+	        while (itR1.hasNext()) {
+		        Map.Entry<MapMarker , OSMNode> pair1 = itR1.next();
+		        if(pair1.getValue() == pair.getKey())
+		        {
+		        	counter++;
+		        	MapMarkerDot m = (MapMarkerDot) pair1.getKey();
+		        	m.setBackColor(MarkerColors.RECOMMENDED_NODE);
+		        	m.setColor(MarkerColors.RECOMMENDED_NODE);
+		        	break;
+		        }
+	        }
+	    }
+	    
+	    createRaport(currentUser, stereotypeName,  usersRec, stereotypeRec, itemsRec);
 	}
 	
 	private void recommendationVisibility()
@@ -335,8 +434,11 @@ public class MainWindow {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	private WaitLayerUI layerUI;
+	
 	private void initialize() {
 		initializeLocations();
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 800, 600);
 		frame.setResizable(false);
@@ -404,6 +506,54 @@ public class MainWindow {
 		eMenuItemLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
+            	
+            	SwingWorker<Map<String, OSMUser>, Void> worker = new SwingWorker<Map<String, OSMUser>, Void>() {
+            		   @Override
+            		   protected Map<String, OSMUser> doInBackground() throws Exception {
+            		    // Simulate doing something useful.
+            			   Map<String, OSMUser> users = rdfReader.loadUsersOSM(nodes);
+                       		return users;
+            		   }
+            		   Map<String, OSMUser> users;
+            		   // Can safely update the GUI from this method.
+            		   protected void done() {
+            		    
+            		    boolean status;
+            		    try {
+            		     // Retrieve the return value of doInBackground.
+            		    	users = get();
+            		    	
+            		    	System.out.println("Number of users: " + users.size());
+                           	UsersDialog ud = new UsersDialog(users,currentUser);
+                               String userID = ud.getResult();
+                               ud.dispose();
+                               clearNodeArea();
+                               if(userID != "" )
+                               {
+                               	currentUser =  users.get(userID);
+                               	if(currentUser == null)
+                               	{
+                               		currentUser = new OSMUser(userID);
+                                   	users.put(userID, currentUser);
+                               	}
+                               	refreshUser();
+                               }
+                               layerUI.stop();
+            		    } catch (InterruptedException e) {
+            		     // This is thrown if the thread's interrupted.
+            		    } catch (ExecutionException e) {
+            		     // This is thrown if we throw an exception
+            		     // from doInBackground.
+            		    }
+            		   }
+            		   
+            		   
+            		  };
+            		  layerUI.start();
+            		  worker.execute();
+            	
+            	
+            	/*
             	Map<String, OSMUser> users = rdfReader.loadUsersOSM(nodes);
             	System.out.println("Number of users: " + users.size());
             	UsersDialog ud = new UsersDialog(users,currentUser);
@@ -419,7 +569,7 @@ public class MainWindow {
                     	users.put(userID, currentUser);
                 	}
                 	refreshUser();
-                }
+                }*/
             }
         });
 		mnUser.add(eMenuItemLogin);
@@ -460,8 +610,44 @@ public class MainWindow {
 		mnRecommend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                recommend();
+            	
+            	SwingWorker<Boolean,Void> worker = new SwingWorker<Boolean,Void>() {
+            		   @Override
+            		   protected Boolean doInBackground() throws Exception {
+            		    // Simulate doing something useful.
+            			   recommend();
+            			   return true;
+            		   }
+            		   // Can safely update the GUI from this method.
+            		   protected void done() {
+            		    
+            		    try {
+            		     // Retrieve the return value of doInBackground.
+            		    	get();
+            		    	layerUI.stop();
+            		    } catch (InterruptedException e) {
+            		     // This is thrown if the thread's interrupted.
+            		    } catch (ExecutionException e) {
+            		     // This is thrown if we throw an exception
+            		     // from doInBackground.
+            		    }
+            		   }
+            		   
+            		   
+            		  };
+            		  layerUI.start();
+            		  worker.execute();
             }
+        });
+		
+		JMenuItem mnRaport = new JMenuItem("Raport");
+		mnRaport.setEnabled(true);
+		mnRaport.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+            			RaportDialog d= new RaportDialog();
+            			d.dispose();
+            	    }
         });
 		
 		mnUserRecommendation = new JCheckBoxMenuItem("User Recommendation",true);
@@ -492,6 +678,7 @@ public class MainWindow {
 		});
 		
 		mnRecommendation.add(mnRecommend);
+		mnRecommendation.add(mnRaport);
 		mnRecommendation.add(mnUserRecommendation);
 		mnRecommendation.add(mnStereotypeRecommendation);
 		mnRecommendation.add(mnItemRecommendation);
@@ -538,9 +725,14 @@ public class MainWindow {
 	    nodePanel.add(starRater);
 	    nodePanel.add(nodePane);
 	    
-	    JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,map, nodePanel);
-	    splitPane.setDividerLocation(600);
+	    
 	    map.setMinimumSize(new Dimension(600,600));
+	    layerUI = new WaitLayerUI();
+		JLayer<JPanel> jlayer = new JLayer<JPanel>(map, layerUI);
+	    jlayer.setPreferredSize(new Dimension(600,600));
+		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,jlayer, nodePanel);
+	    splitPane.setDividerLocation(600);
+		
 	    frame.add(splitPane);
 		
 	    

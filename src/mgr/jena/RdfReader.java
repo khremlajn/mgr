@@ -13,6 +13,7 @@ import mgr.jena.gui.MarkerColors;
 import mgr.jena.osm.OSMNode;
 import mgr.jena.osm.OSMReview;
 import mgr.jena.osm.OSMUser;
+import mgr.jena.recommendation.itembased.RdfBusiness;
 import mgr.jena.recommendation.userbased.ItemNode;
 import mgr.jena.recommendation.userbased.UserNode;
 import mgr.jena.recommendation.userbased.UserRecommender;
@@ -30,14 +31,19 @@ import org.openstreetmap.gui.jmapviewer.interfaces.MapMarker;
 import org.slf4j.Logger ;
 import org.slf4j.LoggerFactory ;
 
+import com.hp.hpl.jena.graph.Triple;
+import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
+import com.hp.hpl.jena.ontology.OntTools;
+import com.hp.hpl.jena.ontology.OntTools.Path;
 import com.hp.hpl.jena.query.* ;
 import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model ;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceFactory ;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -49,6 +55,9 @@ import com.hp.hpl.jena.sparql.util.QueryExecUtils ;
 import com.hp.hpl.jena.tdb.TDBFactory ;
 import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.util.PrintUtil;
+import com.hp.hpl.jena.util.iterator.Filter;
+import com.hp.hpl.jena.vocabulary.OWL;
+import com.hp.hpl.jena.vocabulary.RDF;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -81,10 +90,146 @@ public class RdfReader {
     	try {
 			spatialDataset = initInMemoryDatasetWithLuceneSpatitalIndex(LUCENE_INDEX_DIR);
 			loadData();
+			//CreateOntology();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    }
+    
+    public void CreateOntology()
+    {
+    	//QueryExecutionFactory qef = 
+    	String c = OWL.Class.toString();
+    	String p =  "http://www.w3.org/2002/07/owl#DatatypeProperty";
+    	String pr =  "http://www.w3.org/2002/07/owl#Property";
+    	String query = "Construct { ?s ?p ?o } { ?s a <" + p
+                + "> . ?s ?p ?o . }";
+    	
+    	String query2 = "Prefix owl:<http://www.w3.org/2002/07/owl#> Construct { ?s ?p ?o } { ?s a ?t ; ?p ?o . Filter(?t = owl:Class || ?t = owl:Property || ?t = owl:DatatypeProperty || ?t = owl:NamedIndividual) }";
+    	
+    	String query3 = "Prefix owl:<http://www.w3.org/2002/07/owl#> Construct { ?s ?p ?o . ?o ?x ?y } { ?s a ?t ; ?p ?o . Optional { ?o ?x ?y } . Filter(?t = owl:Class || ?t = owl:Property || ?t = owl:DatatypeProperty || ?t = owl:NamedIndividual) }";
+    	
+    	Model m = spatialDataset.getDefaultModel();
+    	Model ontology = QueryExecutionFactory.create(query3, m).execConstruct();
+        FileOutputStream fos;
+		try {
+			fos = new FileOutputStream("mgr.owl");
+			ontology.write(fos,"TURTLE");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	//Model result = qef.createQueryExecution(query).execConstruct();
+
+        // result.write(System.out, "TURTLE");
+
+        //return result;
+    }
+    public void getAllProperties()
+    {
+    	String pre = StrUtils.strjoinNL("PREFIX : <http://example/>",
+				"PREFIX spatial: <http://jena.apache.org/spatial#>",
+				"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+				"PREFIX lgd: <http://linkedgeodata.org/triplify/>",
+				"PREFIX lgdo: <http://linkedgeodata.org/ontology/>");
+
+		String qs = "SELECT * WHERE { ?s ?p ?o . FILTER regex(STR(?s), \"http://linkedgeodata.org/triplify/node\" ) . }";
+		
+		Map<String, Integer> mapS = new HashMap<String, Integer>();
+		spatialDataset.begin(ReadWrite.READ);
+		try {
+			Query q = QueryFactory.create(pre + "\n" + qs);
+			QueryExecution qexec = QueryExecutionFactory.create(q, spatialDataset);
+			//QueryExecUtils.executeQuery(q, qexec);
+			ResultSet results = qexec.execSelect() ;
+		    while(results.hasNext())
+		    {
+		    	QuerySolution s = results.next();
+		    	if(s.contains("s") && s.contains("p") && s.contains("o"))
+		    	{
+		    		String[] tokenS = s.get("s").toString().split("/");
+		    		String p = s.get("p").toString();
+		    		//double mark  = s.get("p").asLiteral().getDouble();
+		    		if(tokenS.length > 0)
+		    		{
+		    			String nodeID = tokenS[tokenS.length - 1];
+		    			nodeID = nodeID.replace("node", "");
+		    			if(!mapS.containsKey(p))
+		    			{
+		    				mapS.put(p, 1);
+		    			}
+		    			else
+		    			{
+		    				mapS.put(p, mapS.get(p) + 1);
+		    			}
+		    			//long nodeIDLong = Long.parseLong(nodeID);
+		    			
+		    		}
+		    	}
+		    }
+		} finally {
+			spatialDataset.end();
+		}
+		mapS = MapSorter.sortByValue(mapS);
+		Iterator<Entry<String , Integer>> it1 = mapS.entrySet().iterator();
+        String properties = ""; 
+		while (it1.hasNext()) {
+	        Map.Entry<String , Integer> pair1 = it1.next();
+	         properties +=  ",(" + pair1.getKey() + ", Inter)";
+        }
+		System.out.println(properties);
+		System.out.println("test");
+    }
+    
+    public void FindJenaDistance() {
+
+        // Jena implementation 
+
+        long startTime = System.currentTimeMillis();
+        
+        // this file needs to be created by doing "Save As.." and "RDF/XML" for a 'normal' OWL file. Otherwise we get Jena parse errors
+        String inputFileName = "mgr.owl";
+        
+
+        String ns = "http://linkedgeodata.org/";
+        
+        Model model = spatialDataset.getDefaultModel();
+        //OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+        InputStream in = FileManager.get().open(inputFileName);
+        model.read(in,"TURTLE");
+        
+        System.out.format("Ontology load time: (%7.2f sec)%n%n", (System.currentTimeMillis() - startTime) / 1000.0);        
+        
+        //OntClass fromSubClass = model.getOntClass("http://linkedgeodata.org/restaurant");        
+        //OntClass toSuperClass = model.getOntClass("http://http://linkedgeodata.org/pub");
+        Resource fromSubClass = model.getResource("http://linkedgeodata.org/triplify/node910280833");
+        Resource toSuperClass = model.getResource("http://linkedgeodata.org/triplify/node907845241");
+        
+        
+        Path path = OntTools.findShortestPath(model, fromSubClass, toSuperClass, Filter.any);
+
+        if (path != null){
+            int superClasses = 0;
+            for (Statement s: path) {
+                superClasses++;
+            	/*
+            	if (s.getObject().toString().startsWith(ns)) {
+                    // filter out OWL Classes
+                    superClasses++;
+                    System.out.println(s.getObject());
+                }*/
+            }
+            System.out.println("Shortest distance from " + fromSubClass + " to " + toSuperClass + " = " + superClasses);
+        }else if (fromSubClass == toSuperClass){
+            System.out.println("Same node");
+        }else {
+            System.out.println("No path from " + fromSubClass + " to " + toSuperClass);
+        }   
+
+        System.out.format("\nProcessing time: (%7.2f sec)%n%n", (System.currentTimeMillis() - startTime) / 1000.0);
+		
     }
     
     public Map<String, OSMUser> loadUsersOSM(Map<MapMarker,OSMNode> nodes)
@@ -361,6 +506,7 @@ public class RdfReader {
 		deleteOldFiles(indexDir);
 		indexDir.mkdirs();
 		return createDatasetByCode(indexDir);
+		
     }
     
     private Dataset initTDBDatasetWithLuceneSpatitalIndex(File indexDir, File TDBDir) throws IOException{
@@ -490,6 +636,45 @@ public class RdfReader {
 			System.out.println(ex);
 		}
 		
+	}
+	
+	public Map<String, RdfBusiness> getAllNodes()
+	{
+		Model schema = FileManager.get().loadModel("mgr.owl");
+		//Model data = FileManager.get().loadModel("file:data/owlDemoData.rdf");
+		Reasoner reasoner = ReasonerRegistry.getOWLReasoner();
+		reasoner = reasoner.bindSchema(schema);
+		InfModel infmodel = ModelFactory.createInfModel(reasoner, spatialDataset.getDefaultModel());
+		//Property p = infmodel.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
+		RDFNode o = infmodel.getResource("http://linkedgeodata.org/meta/Node");
+		//ResIterator it = spatialDataset.getDefaultModel().listResourcesWithProperty(RDF.type,o);
+		ResIterator it =  infmodel.listResourcesWithProperty(RDF.type,o);;
+		Property p = null;
+		RDFNode n = null;
+		Map<String, RdfBusiness> poiMap = new HashMap<String, RdfBusiness>();
+		int counter = 0;
+		while(it.hasNext()) {
+	        
+			Resource res = it.nextResource();
+	        StmtIterator st =  infmodel.listStatements(res,p,n);
+	        RdfBusiness poi = new RdfBusiness();
+	        String[] tokens = res.toString().split("/"); 
+        	String nodeID =  tokens[tokens.length - 1];
+	        while(st.hasNext())
+	        {
+	        	Statement s = st.nextStatement();
+	        	Triple t = s.asTriple();
+	        	String predicate = t.getPredicate().toString().replaceAll("#", "/");
+	        	tokens = predicate.split("/");
+	        	String key = tokens[tokens.length - 1];
+	        	String val = t.getObject().toString();
+	        	poi.addValue(key, val);
+	        }
+	        poiMap.put(nodeID,poi);
+	        counter ++;
+	        System.out.println(counter);
+	    }
+		return poiMap;
 	}
 
 	private void loadData() throws FileNotFoundException {
